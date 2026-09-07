@@ -1,0 +1,451 @@
+{
+  "common": {
+    "companyName": "P2P Broadband",
+    "tagline": "High-Speed Internet for Every Home",
+    "phone": "+91 99939 96840",
+    "email": "p2infra@gmail.com",
+    "address": "Dindayal, Supela, Khamariya, Bhilai, Chhattisgarh 490009",
+    "whatsappMessage": "Hi, I'm interested in {plan} plan. Please contact me.",
+    "applyNow": "Apply Now",
+    "checkAvailability": "Check Availability",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "viewPlans": "View Plans",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "submit": "Submit",
+    "next": "Next",
+    "previous": "Previous",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "all": "All",
+    "featured": "Featured",
+    "popular": "Most Popular",
+    "recommended": "Recommended",
+    "new": "New",
+    "comingSoon": "Coming Soon",
+    "available": "Available",
+    "notAvailable": "Not Available",
+    "gstNotice": "All prices exclusive of 18% GST",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "copyright": "© 2026 P2P Broadband. All rights reserved."
+  },
+  "navigation": {
+    "home": "Home",
+    "plans": "Plans",
+    "tvOtt": "TV & OTT",
+    "coverage": "Coverage",
+    "about": "About",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "blog": "Blog",
+    "apply": "Apply Now"
+  },
+  "hero": {
+    "headline": "Lightning-Fast Internet for Madhya Pradesh & Chhattisgarh",
+    "subheadline": "10 Mbps to 300 Mbps plans with TV channels & OTT apps. Starting at just ₹333/month.",
+    "ctaPrimary": "Check Availability",
+    "ctaSecondary": "View All Plans",
+    "trustedBy": "Trusted by 10,000+ homes across MP & CG",
+    "stats": {
+      "customers": "10,000+",
+      "districts": "88 Districts",
+      "uptime": "99.9% Uptime",
+      "support": "24/7 Support"
+    }
+  },
+  "valueProps": {
+    "title": "Why Choose P2P Broadband?",
+    "items": [
+      {
+        "icon": "zap",
+        "title": "Lightning Fast",
+        "description": "Up to 300 Mbps with fiber-to-home technology for lag-free streaming, gaming & work."
+      },
+      {
+        "icon": "tv",
+        "title": "TV & OTT Bundled",
+        "description": "200+ TV channels + premium OTT apps (Hotstar, SonyLIV, ZEE5 & more) in select plans."
+      },
+      {
+        "icon": "shield",
+        "title": "Reliable Network",
+        "description": "99.9% uptime with redundant backbone across 88 districts in MP & Chhattisgarh."
+      },
+      {
+        "icon": "headphones",
+        "title": "Local Support",
+        "description": "Bhilai-based team speaking your language — Hindi, Chhattisgarhi & English support."
+      },
+      {
+        "icon": "rupee",
+        "title": "Transparent Pricing",
+        "description": "No hidden fees. All prices shown before GST. Free installation on annual plans."
+      },
+      {
+        "icon": "wifi",
+        "title": "Free Router",
+        "description": "Wi-Fi 6 router included on 12-month commitment. Yours to keep."
+      }
+    ]
+  },
+  "plans": {
+    "title": "Internet Plans & Pricing",
+    "subtitle": "Choose the perfect speed for your home. All prices before 18% GST.",
+    "billingCycle": {
+      "monthly": "Monthly",
+      "quarterly": "Quarterly",
+      "annual": "Annual",
+      "save": "Save {percent}%"
+    },
+    "features": {
+      "speed": "Speed",
+      "data": "Data",
+      "ott": "OTT Apps",
+      "tvChannels": "TV Channels",
+      "router": "Router",
+      "installation": "Installation",
+      "support": "Priority Support",
+      "staticIp": "Static IP"
+    },
+    "cta": "Get This Plan",
+    "mostPopular": "Most Popular",
+    "recommended": "Recommended",
+    "gstBadge": "+18% GST",
+    "perMonth": "/month",
+    "perQuarter": "/quarter",
+    "perYear": "/year",
+    "unlimited": "Unlimited",
+    "fairUsage": "Fair Usage Policy applies"
+  },
+  "tvOtt": {
+    "title": "TV Channels & OTT Entertainment",
+    "subtitle": "Premium entertainment bundled with your internet plan.",
+    "ottSection": {
+      "title": "Premium OTT Apps Included",
+      "apps": [
+        { "name": "Disney+ Hotstar", "icon": "hotstar" },
+        { "name": "SonyLIV", "icon": "sonyliv" },
+        { "name": "ZEE5", "icon": "zee5" },
+        { "name": "JioCinema", "icon": "jiocinema" },
+        { "name": "Discovery+", "icon": "discovery" },
+        { "name": "Sun NXT", "icon": "sunnxt" },
+        { "name": "Eros Now", "icon": "erosnow" },
+        { "name": "Hoichoi", "icon": "hoichoi" }
+      ]
+    },
+    "tvSection": {
+      "title": "200+ TV Channels",
+      "basicPack": {
+        "name": "Basic Pack (100 Mbps Plan)",
+        "channels": "50+ SD Channels",
+        "description": "Popular Hindi, English & regional channels"
+      },
+      "fullPack": {
+        "name": "Full Pack (300 Mbps Plan)",
+        "channels": "200+ SD/HD Channels",
+        "description": "Complete lineup including MP/CG regional, sports, movies, news, kids"
+      }
+    },
+    "channelCategories": [
+      "Hindi General Entertainment",
+      "English Movies & Series",
+      "Sports (Cricket, Football, Kabaddi)",
+      "News (Hindi, English, Regional)",
+      "Kids & Animation",
+      "Music & Lifestyle",
+      "Madhya Pradesh Regional",
+      "Chhattisgarh Regional",
+      "Devotional & Spiritual",
+      "Documentary & Knowledge"
+    ]
+  },
+  "coverage": {
+    "title": "Service Coverage",
+    "subtitle": "We serve all districts across Madhya Pradesh & Chhattisgarh. Check if we're in your area.",
+    "checkPincode": {
+      "label": "Enter your pincode",
+      "placeholder": "e.g., 490009",
+      "button": "Check",
+      "checking": "Checking...",
+      "resultAvailable": "Great! We serve {pincode} ({district}, {state})",
+      "resultComingSoon": "Coming soon to {pincode} ({district}, {state}). Leave your number for updates.",
+      "resultNotAvailable": "We don't serve {pincode} yet. We're expanding fast — check back soon!",
+      "nearestPop": "Nearest Point of Presence: {pop}"
+    },
+    "map": {
+      "title": "Interactive Coverage Map",
+      "legend": {
+        "available": "Fully Served",
+        "partial": "Partial Coverage",
+        "planned": "Planned Expansion",
+        "pop": "Network PoP"
+      }
+    },
+    "states": {
+      "mp": "Madhya Pradesh",
+      "cg": "Chhattisgarh"
+    },
+    "districtCount": "{count} Districts Covered"
+  },
+  "about": {
+    "title": "About P2P Broadband",
+    "subtitle": "Connecting homes & businesses across Central India since 2019.",
+    "story": {
+      "title": "Our Story",
+      "content": "Founded in Bhilai, Chhattisgarh, P2P Broadband started with a simple mission: bring reliable, high-speed internet to every home in Madhya Pradesh and Chhattisgarh — not just the metros. Today, our fiber network spans 88 districts, serving 10,000+ happy customers."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "content": "To bridge the digital divide in Central India by delivering affordable, world-class broadband with local support that understands your needs."
+    },
+    "values": [
+      { "title": "Customer First", "description": "Every decision starts with what's best for our users." },
+      { "title": "Local Roots", "description": "We're from here. We speak your language. We understand your challenges." },
+      { "title": "Quality Network", "description": "Enterprise-grade fiber infrastructure with 99.9% uptime guarantee." },
+      { "title": "Transparent Pricing", "description": "No hidden fees, no surprise bills. What you see is what you pay." }
+    ],
+    "certifications": [
+      "ISP License (Category A)",
+      "DOT Registered",
+      "ISO 27001 Certified",
+      "TRAI Compliant"
+    ],
+    "team": {
+      "title": "Leadership Team",
+      "members": [
+        { "name": "Founder & CEO", "role": "Network Engineering, 15+ years exp" },
+        { "name": "CTO", "role": "Fiber Architecture & Operations" },
+        { "name": "Head of Customer Experience", "role": "Local Support & Regional Ops" }
+      ]
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ready for better internet? Have questions? We're here to help.",
+    "form": {
+      "title": "Send Us a Message",
+      "name": "Full Name",
+      "namePlaceholder": "Your name",
+      "email": "Email Address",
+      "emailPlaceholder": "you@example.com",
+      "phone": "Mobile Number",
+      "phonePlaceholder": "+91 98765 43210",
+      "pincode": "Pincode",
+      "pincodePlaceholder": "Enter your area pincode",
+      "message": "Message",
+      "messagePlaceholder": "How can we help you?",
+      "submit": "Send Message",
+      "success": "Message sent! We'll reply within 4 hours.",
+      "error": "Failed to send. Please try again or call us directly."
+    },
+    "info": {
+      "title": "Contact Information",
+      "phone": {
+        "label": "Call / WhatsApp",
+        "value": "+91 99939 96840",
+        "hours": "10:00 AM – 7:00 PM (Mon–Sat)"
+      },
+      "email": {
+        "label": "Email",
+        "value": "p2infra@gmail.com"
+      },
+      "address": {
+        "label": "Office Address",
+        "value": "Dindayal, Supela, Khamariya, Bhilai, Chhattisgarh 490009"
+      },
+      "maps": {
+        "label": "Find Us on Google Maps",
+        "link": "https://maps.app.goo.gl/hXvcSq87b4PdavJV7"
+      }
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "whatsapp": "Chat on WhatsApp",
+      "call": "Call Now",
+      "apply": "Apply for Connection",
+      "checkCoverage": "Check Coverage"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Quick answers to common questions. Can't find yours? Contact us.",
+    "categories": {
+      "general": "General",
+      "plans": "Plans & Billing",
+      "installation": "Installation",
+      "technical": "Technical",
+      "support": "Support"
+    },
+    "items": [
+      {
+        "category": "general",
+        "question": "What areas do you serve?",
+        "answer": "We serve all 55 districts of Madhya Pradesh and 33 districts of Chhattisgarh — 88 districts total. Use our pincode checker to confirm availability at your exact location."
+      },
+      {
+        "category": "general",
+        "question": "What is P2P Broadband & CCTV?",
+        "answer": "We're a licensed Internet Service Provider (Category A) based in Bhilai, Chhattisgarh. We also provide CCTV installation services for homes and businesses."
+      },
+      {
+        "category": "plans",
+        "question": "Are prices inclusive of GST?",
+        "answer": "No, all prices shown are before 18% GST. The final bill will include GST. For example, the ₹499/month plan becomes ₹589/month with GST."
+      },
+      {
+        "category": "plans",
+        "question": "Can I change my plan later?",
+        "answer": "Yes, you can upgrade or downgrade your plan at any time. Changes take effect from the next billing cycle. No change fees apply."
+      },
+      {
+        "category": "plans",
+        "question": "What OTT apps are included?",
+        "answer": "Our 100 Mbps and 300 Mbps plans include Disney+ Hotstar, SonyLIV, ZEE5, JioCinema, Discovery+, Sun NXT, Eros Now, and Hoichoi. The exact lineup may vary by region."
+      },
+      {
+        "category": "installation",
+        "question": "Is installation free?",
+        "answer": "Installation is free on 12-month commitments. For month-to-month plans, a one-time ₹500 installation fee applies (refundable as credit)."
+      },
+      {
+        "category": "installation",
+        "question": "How long does installation take?",
+        "answer": "Standard installation takes 2–4 hours. Our technician will schedule a convenient time after your application is approved. Same-day installation available in select areas."
+      },
+      {
+        "category": "installation",
+        "question": "Do you provide a Wi-Fi router?",
+        "answer": "Yes! A Wi-Fi 6 dual-band router is included free on 12-month plans. For shorter commitments, you can rent one for ₹199/month or purchase for ₹1,500."
+      },
+      {
+        "category": "technical",
+        "question": "What speeds can I expect?",
+        "answer": "You'll typically get 90–95% of your plan speed over Wi-Fi, and full speed over wired Ethernet. We use GPON fiber technology for consistent performance."
+      },
+      {
+        "category": "technical",
+        "question": "Is there a data cap (FUP)?",
+        "answer": "All plans are unlimited with a Fair Usage Policy (FUP) of 3.3 TB/month — more than enough for 4K streaming, gaming, and work from home."
+      },
+      {
+        "category": "support",
+        "question": "How do I get support?",
+        "answer": "Call/WhatsApp us at +91 99939 96840 (10 AM–7 PM, Mon–Sat), email p2infra@gmail.com, or use the contact form. We respond within 4 hours during business hours."
+      },
+      {
+        "category": "support",
+        "question": "What if my internet goes down?",
+        "answer": "We monitor our network 24/7. Most issues are resolved remotely within 2 hours. For on-site visits, our local technicians typically arrive within 24 hours."
+      }
+    ]
+  },
+  "apply": {
+    "title": "Apply for New Connection",
+    "subtitle": "Get connected in 3 easy steps. Takes less than 5 minutes.",
+    "steps": {
+      "plan": "Select Plan",
+      "personal": "Your Details",
+      "address": "Installation Address",
+      "kyc": "KYC Documents",
+      "review": "Review & Submit"
+    },
+    "plan": {
+      "title": "Choose Your Plan",
+      "selectLabel": "Select a plan",
+      "billingLabel": "Billing Cycle"
+    },
+    "personal": {
+      "title": "Your Details",
+      "fullName": "Full Name (as per Aadhaar)",
+      "fullNamePlaceholder": "Enter your full name",
+      "mobile": "Mobile Number",
+      "mobilePlaceholder": "Enter 10-digit mobile number",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "aadhaar": "Aadhaar Number (Last 4 digits)",
+      "aadhaarPlaceholder": "Last 4 digits only",
+      "otpButton": "Send OTP",
+      "otpLabel": "Enter OTP",
+      "otpPlaceholder": "6-digit code",
+      "verifyOtp": "Verify OTP",
+      "resendOtp": "Resend OTP ({seconds}s)"
+    },
+    "address": {
+      "title": "Installation Address",
+      "pincode": "Pincode",
+      "pincodePlaceholder": "Enter pincode to auto-fill",
+      "state": "State",
+      "district": "District",
+      "city": "City / Town",
+      "area": "Area / Colony",
+      "landmark": "Landmark (Optional)",
+      "landmarkPlaceholder": "Nearest landmark, building name, etc.",
+      "autoFill": "Auto-fill from Pincode",
+      "useCurrentLocation": "Use My Current Location"
+    },
+    "kyc": {
+      "title": "KYC Documents",
+      "description": "Upload clear photos or PDFs (max 2 MB each). Required for activation.",
+      "aadhaarFront": "Aadhaar Card (Front)",
+      "aadhaarBack": "Aadhaar Card (Back)",
+      "selfie": "Selfie (Optional)",
+      "upload": "Upload",
+      "dragDrop": "Drag & drop or click to upload",
+      "fileTypes": "JPG, PNG, PDF · Max 2 MB"
+    },
+    "review": {
+      "title": "Review & Submit",
+      "planSummary": "Plan Summary",
+      "personalSummary": "Personal Details",
+      "addressSummary": "Installation Address",
+      "terms": "I agree to the Terms & Conditions and Privacy Policy",
+      "marketing": "Send me promotional offers via WhatsApp/SMS",
+      "submit": "Submit Application",
+      "submitting": "Submitting...",
+      "success": {
+        "title": "Application Submitted!",
+        "message": "Your application (Ref: {ref}) has been received. Our team will contact you within 4 hours to schedule installation.",
+        "whatsapp": "We've also sent a confirmation to your WhatsApp.",
+        "nextSteps": "Next Steps:",
+        "steps": [
+          "Our team calls you to confirm details",
+          "Technician visits for site survey",
+          "Installation & activation (2–4 hours)",
+          "Start enjoying high-speed internet!"
+        ]
+      }
+    }
+  },
+  "blog": {
+    "title": "Latest Offers & News",
+    "subtitle": "Stay updated with our latest plans, offers, and network expansions.",
+    "readMore": "Read More",
+    "categories": {
+      "offers": "Offers",
+      "news": "News",
+      "expansion": "Network Expansion",
+      "tips": "Tips & Guides"
+    }
+  },
+  "footer": {
+    "tagline": "High-speed fiber internet for every home in Madhya Pradesh & Chhattisgarh.",
+    "quickLinks": "Quick Links",
+    "support": "Support",
+    "legal": "Legal",
+    "followUs": "Follow Us",
+    "newsletter": {
+      "title": "Stay Updated",
+      "placeholder": "Enter your email",
+      "button": "Subscribe",
+      "success": "Subscribed! Check your inbox.",
+      "error": "Already subscribed or invalid email."
+    }
+  }
+}

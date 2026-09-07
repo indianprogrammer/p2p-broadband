@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+:root {
+  /* Light mode (Apple-inspired) */
+  --background: #FFFFFF;
+  --foreground: #1D1D1F;
+  --muted: #F5F5F7;
+  --muted-foreground: #86868B;
+  --primary: #0066CC;
+  --primary-foreground: #FFFFFF;
+  --accent: #E8F2FF;
+  --accent-foreground: #001D3D;
+  --border: #D2D2D7;
+  --success: #30D158;
+  --warning: #FF9F0A;
+  --destructive: #FF453A;
+  --card: #FFFFFF;
+  --card-foreground: #1D1D1F;
+  --input: #FFFFFF;
+  --ring: #0066CC;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #F5F5F7;
+  --muted: #1D1D1F;
+  --muted-foreground: #86868B;
+  --primary: #0A84FF;
+  --primary-foreground: #000000;
+  --accent: #001D3D;
+  --accent-foreground: #F5F5F7;
+  --border: #3A3A3C;
+  --success: #30D158;
+  --warning: #FF9F0A;
+  --destructive: #FF453A;
+  --card: #1D1D1F;
+  --card-foreground: #F5F5F7;
+  --input: #1D1D1F;
+  --ring: #0A84FF;
+}
+
+@theme inline {
+  /* Colors */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Radius */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+
+  /* Fonts - System UI stack (Apple-like, zero downloads) */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Devanagari", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fluid typography scale */
+.text-display {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.text-h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.text-h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.text-h3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.7;
+}
+
+.text-body {
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+  line-height: 1.6;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Apple-style scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: none;
+  ring: 2px solid var(--ring);
+  ring-offset: 2px;
+  ring-offset-background: var(--background);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Selection */
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Hindi/Devanagari font optimization */
+.lang-hi {
+  font-family: var(--font-sans);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "kern", "liga";
+}

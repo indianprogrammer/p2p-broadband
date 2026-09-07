@@ -1,0 +1,81 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="background" x1="120" y1="80" x2="1080" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9F4FF"/>
+      <stop offset="1" stop-color="#F8FBFF"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="198" y1="160" x2="1000" y2="780" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EEF6FF"/>
+    </linearGradient>
+    <linearGradient id="router" x1="400" y1="470" x2="800" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2272F2"/>
+      <stop offset="1" stop-color="#0D3D94"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="240" y1="250" x2="520" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#102D68"/>
+      <stop offset="1" stop-color="#2A82F4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#0D3D94" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#background)"/>
+  <circle cx="1050" cy="150" r="150" fill="#DCEEFF"/>
+  <circle cx="130" cy="770" r="145" fill="#E8F6FF"/>
+  <circle cx="1080" cy="730" r="70" fill="#F0F8FF"/>
+
+  <g filter="url(#shadow)">
+    <rect x="150" y="125" width="900" height="645" rx="42" fill="url(#surface)"/>
+  </g>
+
+  <path d="M555 394C555 280 648 188 763 188C878 188 971 280 971 394" stroke="#B9D8FF" stroke-width="18" stroke-linecap="round" stroke-dasharray="2 34"/>
+  <path d="M598 365C598 275 671 202 763 202C855 202 928 275 928 365" stroke="#7EB5FF" stroke-width="13" stroke-linecap="round" stroke-dasharray="2 28"/>
+
+  <!-- Smart TV -->
+  <g>
+    <rect x="210" y="245" width="355" height="225" rx="22" fill="#17366E"/>
+    <rect x="228" y="263" width="319" height="189" rx="12" fill="url(#screen)"/>
+    <path d="M248 407C295 344 345 365 380 332C426 289 483 307 528 278V452H248V407Z" fill="#5BB7FF" fill-opacity="0.58"/>
+    <circle cx="478" cy="310" r="28" fill="#F4C95D"/>
+    <path d="M248 479H527" stroke="#17366E" stroke-width="18" stroke-linecap="round"/>
+    <path d="M337 495L313 531H463L439 495" fill="#17366E"/>
+    <rect x="295" y="531" width="187" height="14" rx="7" fill="#B7D5FA"/>
+    <rect x="248" y="220" width="108" height="38" rx="19" fill="#FFFFFF"/>
+    <circle cx="272" cy="239" r="8" fill="#3BAA72"/>
+    <path d="M293 239H335" stroke="#5A91D8" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <!-- Laptop -->
+  <g>
+    <rect x="700" y="390" width="272" height="184" rx="18" fill="#17366E"/>
+    <rect x="716" y="406" width="240" height="150" rx="9" fill="#F7FBFF"/>
+    <rect x="733" y="423" width="206" height="116" rx="7" fill="#DCEEFF"/>
+    <path d="M754 508C788 470 809 483 832 458C863 425 901 451 925 433V539H754V508Z" fill="#54A9FF"/>
+    <circle cx="881" cy="458" r="16" fill="#FFCF63"/>
+    <path d="M663 584H1004L1041 617C1055 630 1046 650 1027 650H635C616 650 607 630 621 617L663 584Z" fill="#B9D8FF"/>
+    <path d="M711 604H956" stroke="#5799E5" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="834" cy="609" r="7" fill="#2675E7"/>
+  </g>
+
+  <!-- Wi-Fi router -->
+  <g filter="url(#shadow)">
+    <path d="M427 584H773L823 645C835 660 824 682 804 682H396C376 682 365 660 377 645L427 584Z" fill="url(#router)"/>
+    <rect x="454" y="525" width="292" height="105" rx="25" fill="url(#router)"/>
+    <path d="M505 522V454" stroke="#17366E" stroke-width="14" stroke-linecap="round"/>
+    <path d="M695 522V454" stroke="#17366E" stroke-width="14" stroke-linecap="round"/>
+    <path d="M530 476C554 445 588 429 620 429C652 429 686 445 710 476" stroke="#5D9EFF" stroke-width="12" stroke-linecap="round"/>
+    <path d="M563 473C579 455 599 447 620 447C641 447 661 455 677 473" stroke="#A7D2FF" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="620" cy="479" r="13" fill="#F7CA58"/>
+    <circle cx="520" cy="575" r="9" fill="#5CE09A"/>
+    <circle cx="553" cy="575" r="9" fill="#5CE09A"/>
+    <circle cx="586" cy="575" r="9" fill="#F7CA58"/>
+    <path d="M628 575H701" stroke="#B8D9FF" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- Wireless connection lines -->
+  <path d="M477 530C444 472 445 411 478 357" stroke="#71AEFF" stroke-width="8" stroke-linecap="round" stroke-dasharray="3 22"/>
+  <path d="M760 529C796 490 820 464 848 441" stroke="#71AEFF" stroke-width="8" stroke-linecap="round" stroke-dasharray="3 22"/>
+
+</svg>
