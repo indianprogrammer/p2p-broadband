@@ -254,7 +254,7 @@ export default async function HomePage() {
               </Button>
             </Link>
             <Link href={localizedPath("en", "/apply")}>
-              <Button size="xl" variant="outline" className="w-full sm:w-auto border-primary-foreground/30 hover:bg-primary-foreground/10 gap-2">
+              <Button size="xl" variant="outline" className="w-full sm:w-auto text-primary border-primary-foreground/30 hover:bg-primary-foreground/10 hover:text-primary-foreground gap-2">
                 {common.applyNow}
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
