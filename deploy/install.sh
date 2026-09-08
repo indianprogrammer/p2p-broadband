@@ -8,8 +8,8 @@ set -euo pipefail
 # creates an auto-started systemd service, and opens the firewall.
 #
 # Usage:
-#   sudo ./install.sh                 install from this repo (port 3000)
-#   sudo ./install.sh --port 8080     install on a custom port
+#   sudo ./install.sh                 install from this repo (asks for a port)
+#   sudo ./install.sh --port 8080     install on a custom port (no prompt)
 #   sudo ./install.sh --deb ./dist/p2p-broadband_*.deb
 #   sudo ./install.sh --make-deb      build the .deb, then install it
 #   sudo ./install.sh --uninstall     remove the site + service
@@ -32,6 +32,24 @@ P2P_HOST="${P2P_HOST:-0.0.0.0}"
 
 MODE="source"
 DEB_FILE=""
+P2P_PORT_FLAG=""
+
+# Ask for the serving port unless --port was given or not running in a TTY.
+prompt_for_port() {
+  [[ -n "${P2P_PORT_FLAG}" ]] && return 0
+  [[ -t 0 ]] || return 0
+  local entered=""
+  while :; do
+    read -r -p "  Port to serve on (default ${P2P_PORT}): " entered || { echo; return 0; }
+    entered="${entered:-${P2P_PORT}}"
+    if [[ "${entered}" =~ ^[0-9]+$ ]] && (( entered >= 1 && entered <= 65535 )); then
+      P2P_PORT="${entered}"
+      P2P_PORT_FLAG=1
+      return 0
+    fi
+    echo "  (please enter a number between 1 and 65535)"
+  done
+}
 
 usage() {
   sed -n '5,18p' "$0" | sed 's/^# //'
@@ -131,10 +149,15 @@ build_from_source() {
 install_deb() {
   [[ -f "${DEB_FILE}" ]] || die "Deb package not found: ${DEB_FILE}"
   echo "  [3/6] Installing package  ${DEB_FILE}"
+  export P2P_PORT P2P_HOST   # postinst writes these into /etc/p2p-broadband/env
   dpkg -i "${DEB_FILE}" || {
     export DEBIAN_FRONTEND=noninteractive
     apt-get -y -f install
   }
+  if [[ -n "${P2P_PORT_FLAG}" ]] && [[ -f "${ETC_DIR}/env" ]]; then
+    sed -i "s/^P2P_PORT=.*/P2P_PORT=${P2P_PORT}/" "${ETC_DIR}/env"
+  fi
+  systemctl enable "${SERVICE_NAME}" >/dev/null 2>&1 || true
   systemctl restart "${SERVICE_NAME}" || true
 }
 
@@ -176,7 +199,7 @@ main() {
 
   while [[ $# -gt 0 ]]; do
     case "$1" in
-      --port) P2P_PORT="${2:?--port needs a value}"; shift 2 ;;
+      --port) P2P_PORT="${2:?--port needs a value}"; P2P_PORT_FLAG=1; shift 2 ;;
       --deb) MODE="deb"; DEB_FILE="${2:?--deb needs a path}"; shift 2 ;;
       --make-deb) MODE="deb"; DEB_FILE="$(bash "${SCRIPT_DIR}/build-deb.sh")"; shift ;;
       --uninstall) uninstall ;;
@@ -185,8 +208,10 @@ main() {
     esac
   done
 
+  prompt_for_port
+
   echo
-  echo "  Installing P2P Broadband (${MODE})"
+  echo "  Installing P2P Broadband (${MODE}${P2P_PORT:+, port ${P2P_PORT}})"
   echo
 
   if [[ "${MODE}" == "deb" ]]; then
@@ -207,4 +232,6 @@ main() {
   finish
 }
 
-main "$@"
+if [[ "${BASH_SOURCE[0]}" == "$0" ]]; then
+  main "$@"
+fi
