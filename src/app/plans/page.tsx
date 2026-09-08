@@ -2,13 +2,14 @@ import { getMessages } from "next-intl/server";
 import type { Metadata } from "next";
 import type { Messages } from "@/lib/i18n/messages";
 import { getPageMetadata } from "@/lib/seo";
+import { generatePlansItemListJsonLd, generateBreadcrumbJsonLd } from "@/lib/jsonld";
 import { localizedPath } from "@/lib/i18n/config";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Wifi, Tv, Monitor, Smartphone, Headphones, Shield, Zap } from "lucide-react";
+import { Wifi, Tv, Monitor, Headphones, Shield, Zap } from "@/components/ui/icons";
 
 const allPlans = [
   {
@@ -24,7 +25,6 @@ const allPlans = [
       data: "Unlimited (FUP 3.3 TB)",
       ott: "Not included",
       tvChannels: "Not included",
-      router: "₹199/mo rent or ₹1,500 buy",
       installation: "₹500 (refundable)",
       support: "Standard",
       staticIp: "Not available",
@@ -44,7 +44,6 @@ const allPlans = [
       data: "Unlimited (FUP 3.3 TB)",
       ott: "Not included",
       tvChannels: "Not included",
-      router: "Free on annual",
       installation: "Free on annual",
       support: "Standard",
       staticIp: "Not available",
@@ -64,7 +63,6 @@ const allPlans = [
       data: "Unlimited (FUP 3.3 TB)",
       ott: "8 Premium Apps",
       tvChannels: "50+ SD Channels",
-      router: "Free Wi-Fi 6 Router",
       installation: "Free",
       support: "Priority",
       staticIp: "Available (₹199/mo)",
@@ -85,7 +83,6 @@ const allPlans = [
       data: "Unlimited (FUP 3.3 TB)",
       ott: "8 Premium Apps",
       tvChannels: "200+ SD/HD Channels",
-      router: "Free Wi-Fi 6 Router",
       installation: "Free",
       support: "Priority + Dedicated",
       staticIp: "Included",
@@ -104,8 +101,37 @@ export default async function PlansPage() {
   const messages = (await getMessages()) as Messages;
   const { common, plans } = messages;
 
+  const planItems = allPlans.map((plan) => {
+    const monthly = plan.pricing.monthly;
+    const quarterly = plan.pricing.quarterly;
+    const annual = plan.pricing.annual;
+    const monthlyPrice = monthly ?? (quarterly ? quarterly / 3 : annual ? annual / 12 : 0);
+    return {
+      name: `${plan.name} ${plan.speed}`,
+      description: `${plan.speed} unlimited fiber internet. ${plan.features.data}. ${plan.recommendedFor}.`,
+      price: monthlyPrice,
+      billingPeriod: "P1M",
+      url: `https://p2pbroadband.in/apply?plan=${plan.id}`,
+    };
+  });
+
   return (
     <div className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generatePlansItemListJsonLd(planItems)) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbJsonLd([
+              { name: "Home", url: "https://p2pbroadband.in" },
+              { name: "Fiber Internet Plans & Pricing", url: "https://p2pbroadband.in/plans" },
+            ])
+          ),
+        }}
+      />
       {/* Page Header */}
       <section className="py-16 lg:py-24 bg-muted/30" aria-labelledby="plans-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -204,16 +230,6 @@ export default async function PlansPage() {
                 </tr>
                 <tr className="border-b border-border/50">
                   <td className="p-4 font-medium text-foreground sticky left-0 bg-background z-10">
-                    {plans.features.router}
-                  </td>
-                  {allPlans.map((plan) => (
-                    <td key={`${plan.id}-router`} className="text-center p-4 text-muted-foreground">
-                      {plan.features.router}
-                    </td>
-                  ))}
-                </tr>
-                <tr className="border-b border-border/50">
-                  <td className="p-4 font-medium text-foreground sticky left-0 bg-background z-10">
                     {plans.features.installation}
                   </td>
                   {allPlans.map((plan) => (
@@ -307,7 +323,6 @@ export default async function PlansPage() {
                       { key: "data", icon: Wifi, label: plans.features.data },
                       { key: "ott", icon: Tv, label: plans.features.ott },
                       { key: "tvChannels", icon: Monitor, label: plans.features.tvChannels },
-                      { key: "router", icon: Smartphone, label: plans.features.router },
                       { key: "installation", icon: Headphones, label: plans.features.installation },
                       { key: "support", icon: Shield, label: plans.features.support },
                       { key: "staticIp", icon: Zap, label: plans.features.staticIp },

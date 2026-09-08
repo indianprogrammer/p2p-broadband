@@ -4,7 +4,7 @@ import { getPageMetadata } from "@/lib/seo";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Gauge } from "lucide-react";
+import { ArrowLeft, Gauge } from "@/components/ui/icons";
 
 export async function generateMetadata(): Promise<Metadata> {
   return getPageMetadata("en", "/fup");
@@ -127,7 +127,7 @@ export default async function FupPage() {
               <ul className="mt-2 list-disc list-inside space-y-1">
                 <li>Email: <a href="mailto:p2infra@gmail.com" className="text-primary hover:underline">p2infra@gmail.com</a></li>
                 <li>Phone: <a href="tel:+919993996840" className="text-primary hover:underline">+91 99939 96840</a></li>
-                <li>Address: Dindayal, Supela, Khamariya, Bhilai, Chhattisgarh 490009</li>
+                <li>Address: P2P, Dakshin Gangotri, Supela, Bhilai, Chhattisgarh 490009</li>
               </ul>
             </section>
           </div>

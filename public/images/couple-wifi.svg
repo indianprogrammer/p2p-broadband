@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" fill="none" role="img" aria-labelledby="coupleWifiTitle coupleWifiDesc">
+  <title id="coupleWifiTitle">Happy couple using a laptop with fast Wi-Fi</title>
+  <desc id="coupleWifiDesc">Flat vector illustration of a smiling couple sitting together with a laptop, a large white Wi-Fi symbol on a deep blue background with dotted signal waves.</desc>
+
+  <defs>
+    <linearGradient id="cwBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d257e" />
+      <stop offset="55%" style="stop-color:#0a1c66" />
+      <stop offset="100%" style="stop-color:#071149" />
+    </linearGradient>
+    <linearGradient id="cwLaptop" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a7c3cf" />
+      <stop offset="100%" style="stop-color:#86a2ad" />
+    </linearGradient>
+    <pattern id="cwDiag" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+      <line x1="2" y1="0" x2="2" y2="30" stroke="#cfe0ff" stroke-width="1.4" />
+    </pattern>
+  </defs>
+
+  <!-- ===== Background ===== -->
+  <rect width="1000" height="900" fill="url(#cwBg)" />
+  <rect width="1000" height="900" fill="url(#cwDiag)" opacity="0.05" />
+
+  <!-- ===== Large white Wi-Fi symbol (left) ===== -->
+  <g stroke="#ffffff" stroke-linecap="round">
+    <path d="M100 430 A70 70 0 0 1 200 430" stroke-width="34" />
+    <path d="M55 385 A135 135 0 0 1 245 385" stroke-width="36" />
+    <path d="M9 339 A200 200 0 0 1 291 339" stroke-width="38" />
+  </g>
+  <circle cx="150" cy="480" r="27" fill="#ffffff" />
+
+  <!-- ===== Dotted signal-wave arcs (right) ===== -->
+  <g stroke-linecap="round" stroke-dasharray="0.1 12">
+    <circle cx="1120" cy="360" r="150" stroke="#22d3ee" stroke-width="5" opacity="0.85" />
+    <circle cx="1120" cy="360" r="190" stroke="#38bdf8" stroke-width="4.5" opacity="0.7" />
+    <circle cx="1120" cy="360" r="230" stroke="#22d3ee" stroke-width="4.5" opacity="0.6" />
+    <circle cx="1120" cy="360" r="270" stroke="#60a5fa" stroke-width="4" opacity="0.5" />
+    <circle cx="1120" cy="360" r="310" stroke="#38bdf8" stroke-width="4" opacity="0.4" />
+    <circle cx="1120" cy="360" r="350" stroke="#22d3ee" stroke-width="3.5" opacity="0.3" />
+  </g>
+
+  <!-- Sparkles -->
+  <g stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.5">
+    <path d="M560 120 l0 -18 M551 129 l18 0" />
+    <path d="M880 640 l0 -14 M873 647 l14 0" />
+    <path d="M120 640 l0 -14 M113 647 l14 0" />
+  </g>
+
+  <!-- Ground shadow -->
+  <ellipse cx="560" cy="838" rx="330" ry="30" fill="#040b33" opacity="0.55" />
+
+  <!-- ================= WOMAN (left) ================= -->
+  <g>
+    <!-- back hair mass -->
+    <ellipse cx="383" cy="300" rx="58" ry="135" fill="#161210" />
+    <!-- crossed-leg lap -->
+    <ellipse cx="390" cy="655" rx="122" ry="58" fill="#3f5f92" />
+    <ellipse cx="352" cy="638" rx="42" ry="30" fill="#4a6ea3" />
+    <ellipse cx="428" cy="638" rx="42" ry="30" fill="#4a6ea3" />
+    <path d="M290 650 Q390 690 490 645" stroke="#2f4a75" stroke-width="5" fill="none" opacity="0.8" />
+    <!-- ankles connecting lap to sneakers -->
+    <path d="M340 696 L334 752" stroke="#33507c" stroke-width="32" stroke-linecap="round" />
+    <path d="M444 696 L450 750" stroke="#33507c" stroke-width="32" stroke-linecap="round" />
+    <!-- her sneakers -->
+    <g>
+      <rect x="292" y="744" width="88" height="46" rx="21" transform="rotate(-8 336 767)" fill="#f7f7f5" />
+      <rect x="292" y="772" width="88" height="12" rx="6" transform="rotate(-8 336 767)" fill="#d9d9d6" />
+      <rect x="408" y="742" width="88" height="46" rx="21" transform="rotate(7 452 765)" fill="#f7f7f5" />
+      <rect x="408" y="770" width="88" height="12" rx="6" transform="rotate(7 452 765)" fill="#d9d9d6" />
+      <path d="M322 752 l14 12 M336 750 l14 12 M438 748 l14 12 M452 750 l14 12" stroke="#cfcfcb" stroke-width="3" stroke-linecap="round" />
+    </g>
+    <!-- neck (tucks under head + torso) -->
+    <rect x="370" y="268" width="26" height="60" rx="10" fill="#e2a276" />
+    <!-- torso overshirt -->
+    <path d="M322 330 C340 318 360 312 383 312 C406 312 426 318 444 330 L452 490 C453 545 448 585 440 615 L326 615 C318 585 313 545 314 490 Z" fill="#6e6a3e" />
+    <!-- white inner top -->
+    <path d="M364 322 L402 322 L410 420 L394 600 L372 600 L356 420 Z" fill="#f5f5f2" />
+    <path d="M368 320 L398 320 L383 346 Z" fill="#e2a276" />
+    <!-- collar flaps -->
+    <path d="M364 322 L383 346 L376 370 L356 330 Z" fill="#55522e" />
+    <path d="M402 322 L383 346 L390 370 L410 330 Z" fill="#55522e" />
+    <!-- shoulder caps anchoring the arms -->
+    <ellipse cx="328" cy="352" rx="24" ry="26" fill="#6e6a3e" />
+    <ellipse cx="442" cy="352" rx="24" ry="26" fill="#6e6a3e" />
+    <!-- head -->
+    <ellipse cx="383" cy="240" rx="40" ry="48" fill="#f3c096" />
+    <ellipse cx="344" cy="246" rx="6" ry="9" fill="#f3c096" />
+    <!-- fringe + side lock (clear of the eyes) -->
+    <path d="M343 226 C345 194 360 178 383 178 C406 178 420 194 423 222 C415 208 408 202 398 204 C400 210 398 215 394 217 C388 207 376 203 366 207 C356 211 348 217 343 226 Z" fill="#161210" />
+    <path d="M338 214 C332 280 334 340 342 392 L356 390 C350 340 349 280 352 216 Z" fill="#161210" />
+    <path d="M360 190 C370 184 382 182 392 184" stroke="#3a332e" stroke-width="3" stroke-linecap="round" opacity="0.7" />
+    <!-- face -->
+    <path d="M360 247 Q367 253 374 247" stroke="#3a2317" stroke-width="3" stroke-linecap="round" />
+    <path d="M392 247 Q399 253 406 247" stroke="#3a2317" stroke-width="3" stroke-linecap="round" />
+    <path d="M359 236 Q367 233 375 235" stroke="#3a2317" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M391 235 Q399 233 407 236" stroke="#3a2317" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M381 250 q5 7 -1 10" stroke="#c98a58" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M366 269 Q382 280 398 269" stroke="#7a3b22" stroke-width="4" stroke-linecap="round" />
+    <circle cx="358" cy="261" r="6" fill="#ff9d9d" opacity="0.35" />
+    <circle cx="406" cy="261" r="6" fill="#ff9d9d" opacity="0.35" />
+  </g>
+
+  <!-- ================= MAN (right) ================= -->
+  <g>
+    <!-- folded left thigh + shoe -->
+    <path d="M622 590 L682 742" stroke="#7fa5c2" stroke-width="58" stroke-linecap="round" />
+    <rect x="640" y="742" width="98" height="48" rx="21" transform="rotate(-6 689 766)" fill="#f7f7f5" />
+    <rect x="640" y="772" width="98" height="12" rx="6" transform="rotate(-6 689 766)" fill="#d9d9d6" />
+    <path d="M672 752 l14 12 M688 750 l14 12" stroke="#cfcfcb" stroke-width="3" stroke-linecap="round" />
+    <!-- lower right leg down to shoe -->
+    <path d="M775 640 L848 738" stroke="#7fa5c2" stroke-width="66" stroke-linecap="round" />
+    <!-- right shoe -->
+    <g transform="rotate(-14 872 762)">
+      <rect x="812" y="734" width="118" height="56" rx="24" fill="#f7f7f5" />
+      <rect x="812" y="772" width="118" height="13" rx="6" fill="#d9d9d6" />
+      <path d="M852 742 l16 14 M866 740 l16 14 M880 738 l16 14" stroke="#cfcfcb" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+    <!-- neck (tucks under head + torso) -->
+    <rect x="628" y="234" width="32" height="70" rx="10" fill="#c78d5c" />
+    <!-- torso: left + right overshirt panels -->
+    <path d="M560 298 C580 287 600 282 616 282 L610 560 L540 560 C530 472 535 372 560 298 Z" fill="#7b7848" />
+    <path d="M730 298 C710 287 690 282 674 282 L680 560 L750 560 C760 472 755 372 730 298 Z" fill="#7b7848" />
+    <!-- white tee -->
+    <path d="M610 288 L680 288 L690 420 L685 560 L605 560 L600 420 Z" fill="#f5f5f2" />
+    <path d="M624 286 L666 286 L645 312 Z" fill="#c78d5c" />
+    <path d="M620 288 L645 312 L638 338 L610 294 Z" fill="#5c5934" />
+    <path d="M670 288 L645 312 L652 338 L680 294 Z" fill="#5c5934" />
+    <!-- shoulder caps -->
+    <ellipse cx="566" cy="308" rx="26" ry="28" fill="#7b7848" />
+    <ellipse cx="724" cy="308" rx="26" ry="28" fill="#7b7848" />
+    <!-- seated hips grounding the torso -->
+    <path d="M596 536 L694 536 L716 610 Q645 636 574 610 Z" fill="#7fa5c2" />
+    <!-- raised knee -->
+    <ellipse cx="775" cy="560" rx="78" ry="122" transform="rotate(8 775 560)" fill="#93b8d4" />
+    <ellipse cx="762" cy="520" rx="44" ry="52" fill="#a5c6dd" opacity="0.9" />
+    <path d="M712 600 Q775 628 838 596" stroke="#6f95b5" stroke-width="5" fill="none" opacity="0.8" />
+    <!-- head -->
+    <ellipse cx="645" cy="198" rx="45" ry="52" fill="#e0a672" />
+    <ellipse cx="600" cy="200" rx="7" ry="10" fill="#e0a672" />
+    <ellipse cx="690" cy="200" rx="7" ry="10" fill="#e0a672" />
+    <!-- hair quiff -->
+    <path d="M600 192 C596 150 620 126 648 128 C677 130 693 152 690 186 C685 170 678 162 668 164 C670 172 668 179 664 181 C656 168 640 164 626 170 C614 175 604 183 600 192 Z" fill="#161210" />
+    <rect x="598" y="180" width="8" height="30" rx="4" fill="#161210" />
+    <rect x="684" y="180" width="8" height="30" rx="4" fill="#161210" />
+    <!-- beard -->
+    <path d="M603 204 C605 242 622 262 645 263 C668 262 685 242 687 204 L679 202 C677 236 664 254 645 255 C626 254 613 236 611 202 Z" fill="#1a1512" />
+    <ellipse cx="645" cy="222" rx="17" ry="6.5" fill="#1a1512" />
+    <path d="M627 234 Q645 247 663 234" stroke="#8a4326" stroke-width="4.5" stroke-linecap="round" />
+    <!-- glasses -->
+    <circle cx="626" cy="196" r="13.5" stroke="#1f2937" stroke-width="3.5" />
+    <circle cx="664" cy="196" r="13.5" stroke="#1f2937" stroke-width="3.5" />
+    <path d="M639 196 Q645 191 651 196" stroke="#1f2937" stroke-width="3.5" />
+    <path d="M612 194 L601 190 M678 194 L689 190" stroke="#1f2937" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M621 197 Q626 200 631 197" stroke="#3a2317" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M659 197 Q664 200 669 197" stroke="#3a2317" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M617 182 Q626 179 635 181" stroke="#161210" stroke-width="3" stroke-linecap="round" />
+    <path d="M655 181 Q664 179 673 182" stroke="#161210" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- ================= LAPTOP ================= -->
+  <g>
+    <polygon points="240,700 430,700 414,688 254,688" fill="#5f7a85" />
+    <polygon points="272,545 432,545 414,688 254,688" fill="url(#cwLaptop)" />
+    <polygon points="272,545 432,545 414,688 254,688" fill="none" stroke="#6e8b96" stroke-width="3" />
+    <circle cx="343" cy="616" r="10" fill="#ffffff" opacity="0.35" />
+  </g>
+
+  <!-- ================= ARMS & HANDS ================= -->
+  <g>
+    <!-- her left arm angled in to laptop corner -->
+    <path d="M328 360 L300 480" stroke="#6e6a3e" stroke-width="36" stroke-linecap="round" />
+    <path d="M300 480 L284 646" stroke="#f3c096" stroke-width="24" stroke-linecap="round" />
+    <!-- her right arm angled in to laptop corner -->
+    <path d="M442 360 L426 480" stroke="#6e6a3e" stroke-width="36" stroke-linecap="round" />
+    <path d="M426 480 L412 642" stroke="#f3c096" stroke-width="24" stroke-linecap="round" />
+    <!-- her hands gripping laptop bottom corners -->
+    <ellipse cx="284" cy="662" rx="17" ry="14" transform="rotate(-18 284 662)" fill="#f3c096" />
+    <ellipse cx="412" cy="658" rx="17" ry="14" transform="rotate(14 412 658)" fill="#f3c096" />
+    <!-- his arm resting on her shoulder -->
+    <path d="M562 316 C528 328 500 344 474 360" stroke="#7b7848" stroke-width="38" stroke-linecap="round" />
+    <ellipse cx="462" cy="366" rx="17" ry="14" transform="rotate(-22 462 366)" fill="#e0a672" />
+    <!-- his right arm resting on raised knee -->
+    <path d="M726 316 L748 428" stroke="#7b7848" stroke-width="38" stroke-linecap="round" />
+    <path d="M748 428 L776 516" stroke="#e0a672" stroke-width="25" stroke-linecap="round" />
+    <rect x="758" y="498" width="26" height="14" rx="6" transform="rotate(38 771 505)" fill="#1f2937" />
+    <ellipse cx="782" cy="538" rx="17" ry="14" transform="rotate(30 782 538)" fill="#e0a672" />
+  </g>
+</svg>

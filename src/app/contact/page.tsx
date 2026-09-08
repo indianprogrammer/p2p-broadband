@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Phone, MapPin, Clock, Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, Loader2, CheckCircle, AlertCircle } from "@/components/ui/icons";
 
 export default function ContactPage({
   params,
@@ -25,9 +25,7 @@ export default function ContactPage({
 
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     phone: "",
-    pincode: "",
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -37,12 +35,8 @@ export default function ContactPage({
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.email.trim()) newErrors.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Invalid email format";
     if (!formData.phone.trim()) newErrors.phone = "Phone is required";
     else if (!/^[6-9]\d{9}$/.test(formData.phone.replace(/\D/g, ""))) newErrors.phone = "Invalid 10-digit mobile number";
-    if (!formData.pincode.trim()) newErrors.pincode = "Pincode is required";
-    else if (!/^[1-9][0-9]{5}$/.test(formData.pincode)) newErrors.pincode = "Invalid 6-digit pincode";
     if (!formData.message.trim()) newErrors.message = "Message is required";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -59,7 +53,7 @@ export default function ContactPage({
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
       setSubmitStatus("success");
-      setFormData({ name: "", email: "", phone: "", pincode: "", message: "" });
+      setFormData({ name: "", phone: "", message: "" });
     } catch {
       setSubmitStatus("error");
     } finally {
@@ -126,19 +120,6 @@ export default function ContactPage({
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">{contact.form.email}</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder={contact.form.emailPlaceholder}
-                    value={formData.email}
-                    onChange={(e) => handleChange("email", e.target.value)}
-                    error={errors.email}
-                    disabled={submitting}
-                  />
-                </div>
-
-                <div className="space-y-2">
                   <Label htmlFor="phone">{contact.form.phone}</Label>
                   <Input
                     id="phone"
@@ -148,19 +129,6 @@ export default function ContactPage({
                     onChange={(e) => handleChange("phone", e.target.value.replace(/\D/g, "").slice(0, 10))}
                     error={errors.phone}
                     disabled={submitting}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="pincode">{contact.form.pincode}</Label>
-                  <Input
-                    id="pincode"
-                    placeholder={contact.form.pincodePlaceholder}
-                    value={formData.pincode}
-                    onChange={(e) => handleChange("pincode", e.target.value.replace(/\D/g, "").slice(0, 6))}
-                    error={errors.pincode}
-                    disabled={submitting}
-                    maxLength={6}
                   />
                 </div>
 

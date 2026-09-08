@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="bgTest1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#fffbf2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f2f9ff;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowTest1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff9f0a;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#ff9f0a;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="glowTest2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#0a84ff;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#0a84ff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgTest1)"/>
+  
+  <!-- Soft glows -->
+  <circle cx="200" cy="180" r="280" fill="url(#glowTest1)"/>
+  <circle cx="1000" cy="520" r="300" fill="url(#glowTest2)"/>
+  
+  <!-- Five-point rating stars scattered -->
+  <g fill="#ff9f0a" opacity="0.5">
+    <path transform="translate(90,120)" d="M0 -16 L4 -5 L15 -5 L6 2 L9 13 L0 7 L-9 13 L-6 2 L-15 -5 L-4 -5 Z"/>
+    <path transform="translate(290,100) scale(0.75)" d="M0 -16 L4 -5 L15 -5 L6 2 L9 13 L0 7 L-9 13 L-6 2 L-15 -5 L-4 -5 Z"/>
+    <path transform="translate(520,150) scale(0.6)" d="M0 -16 L4 -5 L15 -5 L6 2 L9 13 L0 7 L-9 13 L-6 2 L-15 -5 L-4 -5 Z"/>
+    <path transform="translate(1090,120) scale(0.9)" d="M0 -16 L4 -5 L15 -5 L6 2 L9 13 L0 7 L-9 13 L-6 2 L-15 -5 L-4 -5 Z"/>
+    <path transform="translate(860,170) scale(0.6)" d="M0 -16 L4 -5 L15 -5 L6 2 L9 13 L0 7 L-9 13 L-6 2 L-15 -5 L-4 -5 Z"/>
+    <path transform="translate(160,640) scale(0.8)" d="M0 -16 L4 -5 L15 -5 L6 2 L9 13 L0 7 L-9 13 L-6 2 L-15 -5 L-4 -5 Z"/>
+    <path transform="translate(380,700) scale(0.55)" d="M0 -16 L4 -5 L15 -5 L6 2 L9 13 L0 7 L-9 13 L-6 2 L-15 -5 L-4 -5 Z"/>
+    <path transform="translate(1080,640) scale(0.75)" d="M0 -16 L4 -5 L15 -5 L6 2 L9 13 L0 7 L-9 13 L-6 2 L-15 -5 L-4 -5 Z"/>
+  </g>
+  
+  <!-- Chat/quote bubbles -->
+  <g transform="translate(430,480)" opacity="0.3">
+    <rect x="0" y="0" width="150" height="72" rx="16" fill="#0a84ff" opacity="0.08"/>
+    <path d="M24 0 L24 0 L36 -12 C36 -8 32 -6 28 -6 C36 -6 36 0 36 0 Z" fill="#0a84ff" opacity="0.08" transform="translate(-6,72)"/>
+    <text x="75" y="30" text-anchor="middle" fill="#0a84ff" font-size="13" font-weight="600">“Best internet</text>
+    <text x="75" y="50" text-anchor="middle" fill="#0a84ff" font-size="13" font-weight="600">ever!”</text>
+  </g>
+  <g transform="translate(740,540)" opacity="0.3">
+    <rect x="0" y="0" width="150" height="72" rx="16" fill="#30d158" opacity="0.08"/>
+    <path d="M126 72 L126 72 L114 60 C114 64 118 66 122 66 C114 66 114 72 114 72 Z" fill="#30d158" opacity="0.08"/>
+    <text x="75" y="30" text-anchor="middle" fill="#008c3a" font-size="13" font-weight="600">“Zero buffer”</text>
+    <text x="75" y="50" text-anchor="middle" fill="#008c3a" font-size="13" font-weight="600">4K streaming”</text>
+  </g>
+  
+  <!-- Large decorative quote mark -->
+  <g fill="#0a84ff" opacity="0.08">
+    <text x="520" y="250" font-size="180" font-weight="700" font-family="Georgia, serif">“</text>
+  </g>
+  
+  <!-- Small dots -->
+  <g fill="#0a84ff" opacity="0.2">
+    <circle cx="120" cy="340" r="2"/>
+    <circle cx="1080" cy="340" r="2.5"/>
+    <circle cx="620" cy="120" r="2"/>
+    <circle cx="720" cy="160" r="2"/>
+    <circle cx="300" cy="540" r="2"/>
+  </g>
+  
+  <!-- Sparkles -->
+  <g stroke="#ff9f0a" stroke-width="1.5" opacity="0.35">
+    <path d="M600 400 l0 -14 M593 393 l14 0"/>
+    <path d="M180 480 l0 -10 M175 475 l10 0"/>
+    <path d="M1020 470 l0 -10 M1015 465 l10 0"/>
+  </g>
+</svg>

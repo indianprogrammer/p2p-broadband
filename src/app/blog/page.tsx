@@ -2,63 +2,13 @@ import { getMessages } from "next-intl/server";
 import type { Metadata } from "next";
 import type { Messages } from "@/lib/i18n/messages";
 import { getPageMetadata } from "@/lib/seo";
+import { blogPosts } from "@/lib/blog";
 import { localizedPath } from "@/lib/i18n/config";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Tag, ArrowRight } from "lucide-react";
+import { Calendar, Tag, ArrowRight } from "@/components/ui/icons";
 import { Button } from "@/components/ui/button";
-
-const blogPosts = [
-  {
-    slug: "welcome-p2p-broadband",
-    title: "Welcome to P2P Broadband: High-Speed Internet for Central India",
-    excerpt: "We're excited to launch our new website and share our mission to bring fiber internet to every home in Madhya Pradesh and Chhattisgarh.",
-    category: "news",
-    date: "2026-09-01",
-    readTime: "3 min read",
-  },
-  {
-    slug: "new-300mbps-plan",
-    title: "Introducing 300 Mbps Plan with Full OTT & TV Bundle",
-    excerpt: "Our new Premium plan includes 200+ TV channels, 8 premium OTT apps, free Wi-Fi 6 router, and static IP — all for ₹1,499/month.",
-    category: "offers",
-    date: "2026-08-15",
-    readTime: "2 min read",
-  },
-  {
-    slug: "network-expansion-2024",
-    title: "Network Expansion: Now Covering All 88 Districts",
-    excerpt: "We've completed our rollout across all 55 districts of MP and 33 districts of Chhattisgarh. Check if your area is covered!",
-    category: "expansion",
-    date: "2026-07-20",
-    readTime: "4 min read",
-  },
-  {
-    slug: "wifi6-router-benefits",
-    title: "Why Wi-Fi 6 Router Matters for Your Home Internet",
-    excerpt: "Learn how our free Wi-Fi 6 router improves speed, coverage, and device capacity for modern smart homes.",
-    category: "tips",
-    date: "2026-06-10",
-    readTime: "5 min read",
-  },
-  {
-    slug: "monsoon-network-readiness",
-    title: "Monsoon Ready: How We Keep You Connected During Rains",
-    excerpt: "Our network engineering team shares how we maintain 99.9% uptime even during heavy monsoons in Central India.",
-    category: "news",
-    date: "2026-05-15",
-    readTime: "3 min read",
-  },
-  {
-    slug: "referral-program-launch",
-    title: "Refer a Friend, Get 1 Month Free!",
-    excerpt: "Our new referral program rewards you and your friends. Share your unique code and enjoy free internet.",
-    category: "offers",
-    date: "2026-04-01",
-    readTime: "2 min read",
-  },
-];
 
 const categories = [
   { id: "all", name: "All Posts" },

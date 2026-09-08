@@ -179,7 +179,7 @@ export function Footer({ locale }: FooterProps) {
               © 2026 P2P Broadband. All rights reserved.
             </p>
             <p className="text-sm text-muted-foreground">
-              Dindayal, Supela, Khamariya, Bhilai, Chhattisgarh 490009
+              P2P, Dakshin Gangotri, Supela, Bhilai, Chhattisgarh 490009
             </p>
           </div>
         </div>

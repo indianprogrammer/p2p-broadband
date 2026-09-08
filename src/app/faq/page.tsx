@@ -2,10 +2,11 @@ import { getMessages } from "next-intl/server";
 import type { Metadata } from "next";
 import type { Messages } from "@/lib/i18n/messages";
 import { getPageMetadata } from "@/lib/seo";
+import { generateFAQJsonLd, generateBreadcrumbJsonLd } from "@/lib/jsonld";
 import { localizedPath } from "@/lib/i18n/config";
 import Link from "next/link";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
-import { Search, ChevronDown } from "lucide-react";
+import { Search, ChevronDown } from "@/components/ui/icons";
 
 const faqData = [
   {
@@ -89,6 +90,26 @@ export default async function FAQPage() {
 
   return (
     <div className="flex-1">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(generateFAQJsonLd(
+            faqData.map((item) => ({ question: item.question, answer: item.answer })),
+            "en"
+          )),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            generateBreadcrumbJsonLd([
+              { name: "Home", url: "https://p2pbroadband.in" },
+              { name: "Broadband FAQs", url: "https://p2pbroadband.in/faq" },
+            ])
+          ),
+        }}
+      />
       {/* Page Header */}
       <section className="py-16 lg:py-24 bg-muted/30" aria-labelledby="faq-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

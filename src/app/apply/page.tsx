@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Check, Loader2, CheckCircle, AlertCircle, ArrowLeft, ArrowRight, Shield, Wifi, Monitor, Smartphone } from "lucide-react";
+import { Check, Loader2, CheckCircle, AlertCircle, ArrowLeft, ArrowRight, Shield, Wifi, Monitor, Smartphone } from "@/components/ui/icons";
 
 const plansData = [
   {
@@ -18,7 +18,7 @@ const plansData = [
     name: "Starter",
     speed: "10 Mbps",
     pricing: { quarterly: 999 },
-    features: { data: "Unlimited (FUP 3.3 TB)", ott: "Not included", tvChannels: "Not included", router: "₹199/mo rent", installation: "₹500 (refundable)", support: "Standard", staticIp: "Not available" },
+    features: { data: "Unlimited (FUP 3.3 TB)", ott: "Not included", tvChannels: "Not included", installation: "₹500 (refundable)", support: "Standard", staticIp: "Not available" },
     popular: false,
   },
   {
@@ -26,7 +26,7 @@ const plansData = [
     name: "Basic",
     speed: "50 Mbps",
     pricing: { monthly: 499, annual: 5389 },
-    features: { data: "Unlimited (FUP 3.3 TB)", ott: "Not included", tvChannels: "Not included", router: "Free on annual", installation: "Free on annual", support: "Standard", staticIp: "Not available" },
+    features: { data: "Unlimited (FUP 3.3 TB)", ott: "Not included", tvChannels: "Not included", installation: "Free on annual", support: "Standard", staticIp: "Not available" },
     popular: false,
   },
   {
@@ -34,7 +34,7 @@ const plansData = [
     name: "Standard",
     speed: "100 Mbps",
     pricing: { monthly: 699, annual: 7549 },
-    features: { data: "Unlimited (FUP 3.3 TB)", ott: "8 Premium Apps", tvChannels: "50+ SD Channels", router: "Free Wi-Fi 6 Router", installation: "Free", support: "Priority", staticIp: "Available (₹199/mo)" },
+    features: { data: "Unlimited (FUP 3.3 TB)", ott: "8 Premium Apps", tvChannels: "50+ SD Channels", installation: "Free", support: "Priority", staticIp: "Available (₹199/mo)" },
     popular: true,
   },
   {
@@ -42,7 +42,7 @@ const plansData = [
     name: "Premium",
     speed: "300 Mbps",
     pricing: { monthly: 1499, annual: 16189 },
-    features: { data: "Unlimited (FUP 3.3 TB)", ott: "8 Premium Apps", tvChannels: "200+ SD/HD Channels", router: "Free Wi-Fi 6 Router", installation: "Free", support: "Priority + Dedicated", staticIp: "Included" },
+    features: { data: "Unlimited (FUP 3.3 TB)", ott: "8 Premium Apps", tvChannels: "200+ SD/HD Channels", installation: "Free", support: "Priority + Dedicated", staticIp: "Included" },
     popular: false,
   },
 ];

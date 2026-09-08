@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description: "Lightning-fast fiber internet (10-300 Mbps) with TV channels & OTT apps across 88 districts in MP & CG. Starting at ₹333/month.",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://p2pbroadband.in/og-image.png",
         width: 1200,
         height: 630,
         alt: "P2P Broadband - High-Speed Internet for MP & CG",

@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="bgEntertain1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f7fbff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f5f0ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffeef5;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowPurple" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8e7cf8;stop-opacity:0.22" />
+      <stop offset="100%" style="stop-color:#8e7cf8;stop-opacity:0" />
+    </radialGradient>
+    <radialGradient id="glowPink" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ff6b9d;stop-opacity:0.18" />
+      <stop offset="100%" style="stop-color:#ff6b9d;stop-opacity:0" />
+    </radialGradient>
+    <linearGradient id="screenBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f2f6ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#faf3ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgEntertain1)"/>
+
+  <!-- Soft glows -->
+  <circle cx="600" cy="380" r="420" fill="url(#glowPurple)"/>
+  <circle cx="1050" cy="640" r="300" fill="url(#glowPink)"/>
+
+  <!-- Floating accent app tiles (faint) -->
+  <g opacity="0.28">
+    <g transform="translate(120,150)">
+      <rect width="70" height="50" rx="10" fill="#e50914"/>
+      <text x="35" y="31" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">Hotstar</text>
+    </g>
+    <g transform="translate(1015,610)">
+      <rect width="76" height="50" rx="10" fill="#0066cc"/>
+      <text x="38" y="31" text-anchor="middle" fill="white" font-size="11" font-weight="bold" font-family="system-ui, sans-serif">SonyLIV</text>
+    </g>
+  </g>
+
+  <!-- TV stand -->
+  <rect x="578" y="590" width="44" height="30" rx="6" fill="#d7e2f4"/>
+  <rect x="540" y="620" width="120" height="14" rx="7" fill="#c9d7ec"/>
+
+  <!-- TV frame -->
+  <rect x="260" y="120" width="680" height="470" rx="28" fill="#ffffff" stroke="#dce7f6" stroke-width="2"/>
+
+  <!-- TV screen -->
+  <rect x="278" y="138" width="644" height="434" rx="16" fill="url(#screenBg)" stroke="#e3ecf8" stroke-width="1.5"/>
+
+  <!-- Screen header -->
+  <text x="299" y="184" fill="#0b2545" font-size="22" font-weight="bold" font-family="system-ui, sans-serif">Now Streaming on P2P TV+</text>
+  <rect x="841" y="168" width="70" height="30" rx="15" fill="#e50914"/>
+  <text x="876" y="189" text-anchor="middle" fill="white" font-size="16" font-weight="bold" font-family="system-ui, sans-serif">LIVE</text>
+
+  <!-- OTT app grid -->
+  <!-- Row 1 -->
+  <g transform="translate(299,204)">
+    <rect width="142" height="66" rx="14" fill="#e50914"/>
+    <text x="71" y="41" text-anchor="middle" fill="white" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">Hotstar</text>
+  </g>
+  <g transform="translate(457,204)">
+    <rect width="142" height="66" rx="14" fill="#0066cc"/>
+    <text x="71" y="41" text-anchor="middle" fill="white" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">SonyLIV</text>
+  </g>
+  <g transform="translate(615,204)">
+    <rect width="142" height="66" rx="14" fill="#0d8a5f"/>
+    <text x="71" y="41" text-anchor="middle" fill="white" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">ZEE5</text>
+  </g>
+  <g transform="translate(773,204)">
+    <rect width="142" height="66" rx="14" fill="#0066ff"/>
+    <text x="71" y="41" text-anchor="middle" fill="white" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">JioCinema</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(299,286)">
+    <rect width="142" height="66" rx="14" fill="#ff6b00"/>
+    <text x="71" y="41" text-anchor="middle" fill="white" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">Discovery+</text>
+  </g>
+  <g transform="translate(457,286)">
+    <rect width="142" height="66" rx="14" fill="#f2a413"/>
+    <text x="71" y="41" text-anchor="middle" fill="white" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">Sun NXT</text>
+  </g>
+  <g transform="translate(615,286)">
+    <rect width="142" height="66" rx="14" fill="#ff6699"/>
+    <text x="71" y="41" text-anchor="middle" fill="white" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">Eros Now</text>
+  </g>
+  <g transform="translate(773,286)">
+    <rect width="142" height="66" rx="14" fill="#ff0066"/>
+    <text x="71" y="41" text-anchor="middle" fill="white" font-size="20" font-weight="bold" font-family="system-ui, sans-serif">Hoichoi</text>
+  </g>
+
+  <!-- Category chips -->
+  <g font-size="16" font-weight="600" fill="#0b2545" font-family="system-ui, sans-serif">
+    <rect x="350" y="372" width="110" height="36" rx="18" fill="#ffffff" stroke="#dbe6f5"/>
+    <text x="405" y="395" text-anchor="middle">Movies</text>
+    <rect x="480" y="372" width="110" height="36" rx="18" fill="#ffffff" stroke="#dbe6f5"/>
+    <text x="535" y="395" text-anchor="middle">Series</text>
+    <rect x="610" y="372" width="110" height="36" rx="18" fill="#ffffff" stroke="#dbe6f5"/>
+    <text x="665" y="395" text-anchor="middle">Sports</text>
+    <rect x="740" y="372" width="110" height="36" rx="18" fill="#ffffff" stroke="#dbe6f5"/>
+    <text x="795" y="395" text-anchor="middle">Kids</text>
+  </g>
+
+  <!-- Bottom info bar -->
+  <rect x="299" y="432" width="616" height="52" rx="14" fill="#ffffff" stroke="#dbe6f5"/>
+  <circle cx="326" cy="458" r="15" fill="#0a84ff"/>
+  <path d="M320 451 L336 458 L320 465 Z" fill="white"/>
+  <text x="354" y="463" fill="#0b2545" font-size="18" font-weight="bold" font-family="system-ui, sans-serif">Watch on any TV</text>
+  <text x="803" y="463" text-anchor="end" fill="#6b7a90" font-size="15" font-family="system-ui, sans-serif">HD 4K • 200+ channels</text>
+
+  <!-- Decorative dots -->
+  <g fill="#0a84ff" opacity="0.3">
+    <circle cx="70" cy="420" r="2.5"/>
+    <circle cx="160" cy="520" r="2"/>
+    <circle cx="1130" cy="420" r="2.5"/>
+    <circle cx="1060" cy="200" r="2"/>
+    <circle cx="600" cy="700" r="2.5"/>
+    <circle cx="70" cy="720" r="2"/>
+  </g>
+
+  <!-- Sparkle accents -->
+  <g stroke="#ff6b9d" stroke-width="1.5" opacity="0.25">
+    <path d="M300 660 l0 -14 M293 653 l14 0"/>
+    <path d="M900 300 l0 -10 M895 295 l10 0"/>
+    <path d="M950 180 l0 -10 M945 175 l10 0"/>
+  </g>
+</svg>

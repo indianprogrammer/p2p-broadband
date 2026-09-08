@@ -4,7 +4,7 @@
     "tagline": "High-Speed Internet for Every Home",
     "phone": "+91 99939 96840",
     "email": "p2infra@gmail.com",
-    "address": "Dindayal, Supela, Khamariya, Bhilai, Chhattisgarh 490009",
+    "address": "P2P, Dakshin Gangotri, Supela, Bhilai, Chhattisgarh 490009",
     "whatsappMessage": "Hi, I'm interested in {plan} plan. Please contact me.",
     "applyNow": "Apply Now",
     "checkAvailability": "Check Availability",
@@ -91,7 +91,7 @@
       {
         "icon": "wifi",
         "title": "Free Router",
-        "description": "Wi-Fi 6 router included on 12-month commitment. Yours to keep."
+        "description": "Wi-Fi 6 router included on 12-month commitment."
       }
     ]
   },
@@ -231,15 +231,11 @@
     "subtitle": "Ready for better internet? Have questions? We're here to help.",
     "form": {
       "title": "Send Us a Message",
-      "name": "Full Name",
-      "namePlaceholder": "Your name",
-      "email": "Email Address",
-      "emailPlaceholder": "you@example.com",
-      "phone": "Mobile Number",
-      "phonePlaceholder": "+91 98765 43210",
-      "pincode": "Pincode",
-      "pincodePlaceholder": "Enter your area pincode",
-      "message": "Message",
+"name": "Full Name",
+ "namePlaceholder": "Your name",
+"phone": "Mobile Number",
+ "phonePlaceholder": "+91 98765 43210",
+ "message": "Message",
       "messagePlaceholder": "How can we help you?",
       "submit": "Send Message",
       "success": "Message sent! We'll reply within 4 hours.",
@@ -258,7 +254,7 @@
       },
       "address": {
         "label": "Office Address",
-        "value": "Dindayal, Supela, Khamariya, Bhilai, Chhattisgarh 490009"
+        "value": "P2P, Dakshin Gangotri, Supela, Bhilai, Chhattisgarh 490009"
       },
       "maps": {
         "label": "Find Us on Google Maps",

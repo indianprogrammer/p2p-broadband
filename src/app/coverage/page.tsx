@@ -10,7 +10,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, CheckCircle, AlertCircle, Clock, Search, Loader2 } from "lucide-react";
+import { MapPin, CheckCircle, AlertCircle, Clock, Search, Loader2 } from "@/components/ui/icons";
+import { CoverageMap } from "@/components/map/CoverageMap";
+import { allCoveragePoints } from "@/lib/coverage";
 
 const mpDistricts = [
   "Agar Malwa", "Alirajpur", "Anuppur", "Ashoknagar", "Balaghat", "Barwani", "Betul", "Bhind", "Bhopal",
@@ -330,7 +332,7 @@ export default function CoveragePage({
         </div>
       </section>
 
-      {/* Map Placeholder */}
+      {/* Interactive Map */}
       <section className="py-16 lg:py-24 bg-muted/30" aria-labelledby="map-heading">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-12">
@@ -338,24 +340,18 @@ export default function CoveragePage({
               {coverage.map.title}
             </h2>
             <p className="mt-4 text-body-lg text-muted-foreground">
-              Interactive map showing coverage across MP & CG. Green = Fully Served, Yellow = Coming Soon, Red = Planned.
+              Interactive map showing coverage across MP &amp; CG. Drag to pan, click a pin for details, or use the layer toggles to filter.
             </p>
           </div>
 
-          <div className="aspect-video rounded-2xl border border-border bg-muted/50 flex items-center justify-center">
-            <div className="text-center p-8">
-              <MapPin className="h-16 w-16 mx-auto text-muted-foreground/50 mb-4" aria-hidden="true" />
-              <h3 className="text-xl font-semibold mb-2">Interactive Map (Coming Soon)</h3>
-              <p className="text-muted-foreground mb-6">
-                Full Mapbox GL integration with district boundaries, PoP locations, and real-time availability.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-                <span className="flex items-center gap-2"><Badge variant="success" className="h-6 px-2">Fully Served</Badge></span>
-                <span className="flex items-center gap-2"><Badge variant="warning" className="h-6 px-2">Coming Soon</Badge></span>
-                <span className="flex items-center gap-2"><Badge variant="outline" className="h-6 px-2">Planned</Badge></span>
-                <span className="flex items-center gap-2"><MapPin className="h-4 w-4" /> PoP Location</span>
-              </div>
-            </div>
+          <CoverageMap
+            points={allCoveragePoints}
+            activePincode={result?.status === "available" ? pincode : null}
+            labels={coverage.map.legend}
+          />
+
+          <div className="mt-6 text-center text-sm text-muted-foreground">
+            Tip: use the pincode checker above and the map will zoom to your nearest network PoP.
           </div>
         </div>
       </section>

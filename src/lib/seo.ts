@@ -32,15 +32,24 @@ const pageCopy = {
     en: { title: "Apply for P2P Broadband", description: "Apply online for a P2P Broadband fiber internet connection and choose the right plan for your home or business." },
   },
   "/terms": {
-    en: { title: "Terms & Conditions | P2P Broadband", description: "Read the terms and conditions for using P2P Broadband fiber internet services across Madhya Pradesh and Chhattisgarh." },
+    en: { title: "Terms & Conditions", description: "Read the terms and conditions for using P2P Broadband fiber internet services across Madhya Pradesh and Chhattisgarh." },
   },
   "/privacy": {
-    en: { title: "Privacy Policy | P2P Broadband", description: "Learn how P2P Broadband collects, uses, and protects your personal information." },
+    en: { title: "Privacy Policy", description: "Learn how P2P Broadband collects, uses, and protects your personal information." },
   },
   "/fup": {
-    en: { title: "Fair Usage Policy | P2P Broadband", description: "Understand the Fair Usage Policy for P2P Broadband unlimited fiber internet plans." },
+    en: { title: "Fair Usage Policy", description: "Understand the Fair Usage Policy for P2P Broadband unlimited fiber internet plans." },
   },
 } as const;
+
+export const openGraphImages = [
+  {
+    url: `${siteUrl}/og-image.png`,
+    width: 1200,
+    height: 630,
+    alt: "P2P Broadband - High-Speed Fiber Internet for MP & Chhattisgarh",
+  },
+];
 
 export function getPageMetadata(locale: string, route: keyof typeof pageCopy): Metadata {
   const copy = pageCopy[route].en;
@@ -58,6 +67,9 @@ export function getPageMetadata(locale: string, route: keyof typeof pageCopy): M
       description: copy.description,
       url: currentUrl,
       locale: "en_IN",
+      siteName: "P2P Broadband",
+      type: "website",
+      images: openGraphImages,
     },
   };
 }

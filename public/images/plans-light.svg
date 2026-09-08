@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="bgPlans1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f2f8ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f6f3ff;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowPlans1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#0a84ff;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#0a84ff;stop-opacity:0" />
+    </radialGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#f0f6ff;stop-opacity:0.95" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgPlans1)"/>
+  
+  <!-- Soft glows -->
+  <circle cx="180" cy="220" r="280" fill="url(#glowPlans1)"/>
+  <circle cx="1020" cy="560" r="300" fill="url(#glowPlans1)"/>
+  <circle cx="900" cy="160" r="200" fill="#ff9f0a" opacity="0.05"/>
+  
+  <!-- Floating pricing cards -->
+  <g transform="translate(150,190) rotate(-6)" opacity="0.35">
+    <rect x="0" y="0" width="150" height="92" rx="14" fill="url(#cardGrad)" stroke="#dce8f5" stroke-width="1"/>
+    <rect x="14" y="14" width="46" height="28" rx="6" fill="#0a84ff" opacity="0.75"/>
+    <rect x="14" y="52" width="90" height="9" rx="4" fill="#b7c6da"/>
+    <rect x="14" y="68" width="64" height="8" rx="4" fill="#d3dde8"/>
+  </g>
+  
+  <g transform="translate(980,190) rotate(5)" opacity="0.35">
+    <rect x="0" y="0" width="150" height="92" rx="14" fill="url(#cardGrad)" stroke="#dce8f5" stroke-width="1"/>
+    <rect x="14" y="14" width="46" height="28" rx="6" fill="#30d158" opacity="0.7"/>
+    <rect x="14" y="52" width="90" height="9" rx="4" fill="#b7c6da"/>
+    <rect x="14" y="68" width="64" height="8" rx="4" fill="#d3dde8"/>
+  </g>
+  
+  <g transform="translate(140,600) rotate(4)" opacity="0.35">
+    <rect x="0" y="0" width="150" height="92" rx="14" fill="url(#cardGrad)" stroke="#dce8f5" stroke-width="1"/>
+    <rect x="14" y="14" width="46" height="28" rx="6" fill="#8e7cf8" opacity="0.7"/>
+    <rect x="14" y="52" width="90" height="9" rx="4" fill="#b7c6da"/>
+    <rect x="14" y="68" width="64" height="8" rx="4" fill="#d3dde8"/>
+  </g>
+  
+  <g transform="translate(1000,610) rotate(-4)" opacity="0.35">
+    <rect x="0" y="0" width="150" height="92" rx="14" fill="url(#cardGrad)" stroke="#dce8f5" stroke-width="1"/>
+    <rect x="14" y="14" width="46" height="28" rx="6" fill="#ff6b9d" opacity="0.7"/>
+    <rect x="14" y="52" width="90" height="9" rx="4" fill="#b7c6da"/>
+    <rect x="14" y="68" width="64" height="8" rx="4" fill="#d3dde8"/>
+  </g>
+  
+  <!-- Speed tags -->
+  <g transform="translate(470,120)" opacity="0.4">
+    <rect x="0" y="0" width="88" height="32" rx="16" fill="#0a84ff" opacity="0.12"/>
+    <text x="44" y="21" text-anchor="middle" fill="#0a84ff" font-size="15" font-weight="600">50 Mbps</text>
+  </g>
+  <g transform="translate(680,130)" opacity="0.4">
+    <rect x="0" y="0" width="102" height="32" rx="16" fill="#30d158" opacity="0.12"/>
+    <text x="51" y="21" text-anchor="middle" fill="#008c3a" font-size="15" font-weight="600">100 Mbps</text>
+  </g>
+  <g transform="translate(920,120)" opacity="0.4">
+    <rect x="0" y="0" width="96" height="32" rx="16" fill="#ff9f0a" opacity="0.14"/>
+    <text x="48" y="21" text-anchor="middle" fill="#b26a00" font-size="15" font-weight="600">300 Mbps</text>
+  </g>
+  
+  <!-- Price tag / rupee badges -->
+  <g transform="translate(530,660)" opacity="0.35">
+    <circle cx="0" cy="0" r="26" fill="#0a84ff" opacity="0.1"/>
+    <text x="0" y="9" text-anchor="middle" fill="#0a84ff" font-size="28" font-weight="600">₹</text>
+  </g>
+  <g transform="translate(680,620)" opacity="0.35">
+    <circle cx="0" cy="0" r="26" fill="#30d158" opacity="0.1"/>
+    <text x="0" y="9" text-anchor="middle" fill="#008c3a" font-size="28" font-weight="600">₹</text>
+  </g>
+  <g transform="translate(830,660)" opacity="0.35">
+    <circle cx="0" cy="0" r="26" fill="#8e7cf8" opacity="0.1"/>
+    <text x="0" y="9" text-anchor="middle" fill="#5b4cdb" font-size="28" font-weight="600">₹</text>
+  </g>
+  
+  <!-- Small dots -->
+  <g fill="#0a84ff" opacity="0.25">
+    <circle cx="300" cy="160" r="2"/>
+    <circle cx="380" cy="660" r="2.5"/>
+    <circle cx="900" cy="700" r="2"/>
+    <circle cx="1100" cy="360" r="2.5"/>
+    <circle cx="120" cy="400" r="2"/>
+  </g>
+  
+  <!-- Sparkles -->
+  <g stroke="#ff9f0a" stroke-width="1.5" opacity="0.3">
+    <path d="M600 110 l0 -10 M595 105 l10 0"/>
+    <path d="M330 520 l0 -10 M325 515 l10 0"/>
+    <path d="M880 520 l0 -10 M875 515 l10 0"/>
+  </g>
+</svg>

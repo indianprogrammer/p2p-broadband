@@ -9,11 +9,13 @@ export function generateLocalBusinessJsonLd(locale: string = "en") {
       ? "मध्य प्रदेश और छत्तीसगढ़ में हाई-स्पीड फाइबर इंटरनेट, टीवी चैनल और OTT ऐप्स के साथ।"
       : "High-speed fiber internet with TV channels & OTT apps across Madhya Pradesh & Chhattisgarh.",
     url: "https://p2pbroadband.in",
+    logo: "https://p2pbroadband.in/icon.svg",
+    image: "https://p2pbroadband.in/og-image.png",
     telephone: "+91-99939-96840",
     email: "p2infra@gmail.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Dindayal, Supela, Khamariya",
+      streetAddress: "P2P, Dakshin Gangotri, Supela",
       addressLocality: "Bhilai",
       addressRegion: "Chhattisgarh",
       postalCode: "490009",
@@ -190,5 +192,77 @@ export function generateBreadcrumbJsonLd(items: Array<{ name: string; url: strin
       name: item.name,
       item: item.url,
     })),
+  };
+}
+
+export function generateWebSiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://p2pbroadband.in/#website",
+    name: "P2P Broadband",
+    url: "https://p2pbroadband.in",
+    inLanguage: "en-IN",
+    publisher: {
+      "@id": "https://p2pbroadband.in/#organization",
+    },
+  };
+}
+
+export function generatePlansItemListJsonLd(plans: Array<{ name: string; description: string; price: number; billingPeriod: string; url: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "P2P Broadband Fiber Internet Plans",
+    numberOfItems: plans.length,
+    itemListElement: plans.map((plan, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Product",
+        name: plan.name,
+        description: plan.description,
+        brand: { "@type": "Brand", name: "P2P Broadband" },
+        category: "Fiber Internet",
+        offers: {
+          "@type": "Offer",
+          url: plan.url,
+          priceCurrency: "INR",
+          price: plan.price,
+          priceValidUntil: "2026-12-31",
+          availability: "https://schema.org/InStock",
+          seller: { "@type": "Organization", name: "P2P BROADBAND & CCTV" },
+        },
+      },
+    })),
+  };
+}
+
+export function generateBlogPostingJsonLd(post: {
+  title: string;
+  excerpt: string;
+  slug: string;
+  date: string;
+  category: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    image: "https://p2pbroadband.in/og-image.png",
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Organization",
+      name: "P2P Broadband",
+      url: "https://p2pbroadband.in",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "P2P Broadband",
+      logo: { "@type": "ImageObject", url: "https://p2pbroadband.in/icon.svg" },
+    },
+    mainEntityOfPage: `https://p2pbroadband.in/blog/${post.slug}`,
   };
 }
