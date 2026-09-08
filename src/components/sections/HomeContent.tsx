@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "@/lib/motion";
+import Image from "next/image";
 import type { Messages } from "@/lib/i18n/messages";
 import { localizedPath } from "@/lib/i18n/config";
 import Link from "next/link";
@@ -158,12 +159,14 @@ export function HomeContent({ messages }: HomeContentProps) {
                 animate={{ y: [0, -8, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <img
+                <Image
                   src="/images/hero-customers.avif"
                   alt="Indian family using P2P Broadband Wi-Fi together on a laptop"
                   width={1100}
                   height={734}
                   fetchPriority="high"
+                  loading="eager"
+                  sizes="(min-width: 1024px) 40vw, (min-width: 640px) 60vw, 92vw"
                   className="h-auto w-full rounded-[24px]"
                 />
               </motion.div>

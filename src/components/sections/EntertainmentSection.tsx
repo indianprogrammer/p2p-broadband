@@ -35,6 +35,8 @@ export function EntertainmentSection() {
         <img
           src="/images/tv-entertainment-light.svg"
           alt=""
+          width={1200}
+          height={800}
           className="w-full h-full object-cover opacity-40 blur-[72px] scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-white via-white/85 to-white" />
@@ -105,6 +107,8 @@ export function EntertainmentSection() {
                 <img
                   src="/images/tv-entertainment-light.svg"
                   alt="Smart TV with streaming apps"
+                  width={1200}
+                  height={800}
                   className="w-full h-auto"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-white/80 backdrop-blur-sm border-t border-border/40">

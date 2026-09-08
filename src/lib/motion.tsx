@@ -179,6 +179,15 @@ function cancelAnimations(element: Element) {
   for (const animation of element.getAnimations()) animation.cancel();
 }
 
+function isInInitialViewport(element: Element): boolean {
+  const rect = element.getBoundingClientRect();
+  return rect.top < window.innerHeight && rect.bottom > 0;
+}
+
+function startsHidden(initial: Target | undefined): boolean {
+  return !!initial && initial.opacity === 0;
+}
+
 function createMotionComponent(tag: string) {
   function MotionComponent(props: MotionProps) {
     const {
@@ -215,6 +224,9 @@ function createMotionComponent(tag: string) {
       if (!animate) return;
       const element = elementRef.current;
       if (!element) return;
+      // Above-the-fold entrance animations would first hide the LCP content
+      // (server-rendered visible), delaying LCP. Skip them once.
+      if (startsHidden(initial) && isInInitialViewport(element)) return;
       cancelAnimations(element);
       animationRef.current = runAnimation(element, initial ?? {}, animate, transition);
     }, [animate, initial, transition]);
@@ -223,10 +235,16 @@ function createMotionComponent(tag: string) {
       if (whileInView) {
         const element = elementRef.current;
         if (!element) return;
+        let firstEntry = true;
         const observer = new IntersectionObserver(
           (entries) => {
             for (const entry of entries) {
               if (entry.isIntersecting) {
+                if (firstEntry) {
+                  firstEntry = false;
+                  // Already visible at load: no reveal animation needed (LCP).
+                  continue;
+                }
                 animateTo(initial ?? {}, whileInView, true);
               } else if (!viewport?.once && animationRef.current) {
                 animationRef.current.reverse();

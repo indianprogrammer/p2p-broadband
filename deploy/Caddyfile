@@ -1,0 +1,40 @@
+# =============================================================================
+# P2P Broadband — Caddy reverse proxy (HTTP/2 + HTTP/3)
+#
+# The bare `next start` server speaks HTTP/1.1 only. Browsers open many
+# connections for ~26+ requests; HTTP/2 multiplexes them on one connection
+# (Lighthouse audits ~730ms savings). Caddy gives you HTTP/2, and HTTP/3
+# once TLS is on.
+#
+# Setup:
+#   1. Point the site at localhost (browser hits Caddy instead):
+#        echo -e 'P2P_HOST=127.0.0.1\nP2P_PORT=8080' > /etc/p2p-broadband/env
+#        systemctl restart p2p-broadband         # next start now on 127.0.0.1:8080
+#   2. Install Caddy:  apt install -y caddy
+#      (or:  curl -fsSL https://caddyserver.com/install.sh | sudo bash)
+#   3. Copy THIS file to /etc/caddy/Caddyfile and: systemctl restart caddy
+#   4. Keep port 3000 open on the firewall (Caddy listens there now).
+#
+# Modes:
+#   A) Without a domain (bare IP, no TLS): HTTP/2-clear (h2c). Firefox and
+#      Node.js clients get multiplexed HTTP/2; Chrome only uses HTTP/2 over
+#      TLS, so for maximal Chrome benefit use mode B.
+#   B) With a public hostname: uncomment the "p2pbroadband.in" site block,
+#      disable mode A, and Caddy auto-provisions HTTPS (HTTP/2 + HTTP/3).
+#      A domain is required for Let's Encrypt certificates.
+# =============================================================================
+
+# --- Mode A: cleartext on the current IP:port ------------------------------
+:3000 {
+	encode gzip
+	reverse_proxy 127.0.0.1:8080
+}
+
+# --- Mode B: domain + automatic HTTPS (HTTP/2 + HTTP/3) ---------------------
+#p2pbroadband.in {
+#	encode zstd gzip
+#	reverse_proxy 127.0.0.1:8080
+#}
+
+# Note: with mode B, switch Caddy's listener to 443 (default), forward 80->443,
+# and open 443/tcp + 443/udp (HTTP/3) on the firewall.
