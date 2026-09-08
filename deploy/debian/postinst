@@ -7,22 +7,13 @@ SERVICE_NAME="p2p-broadband"
 SERVICE_UNIT="/etc/systemd/system/${SERVICE_NAME}.service"
 APP_USER="p2p"
 NODE_MAJOR="${NODE_MAJOR:-22}"
+SYSTEM_PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 case "$1" in
   configure) ;;
   abort-upgrade|abort-remove|abort-deconfigure) exit 0 ;;
   *) exit 0 ;;
 esac
-
-# --- Node.js >= 20.9 (via NodeSource) -------------------------------------
-if ! command -v node >/dev/null 2>&1 || \
-   ! node -e 'process.exit(process.versions.node.split(".").map(p=>+p).reduce((a,b,i)=>a*100+b)>=2009?0:1)' 2>/dev/null; then
-  echo "postinst: installing Node.js ${NODE_MAJOR}.x ..."
-  export DEBIAN_FRONTEND=noninteractive
-  curl -fsSL "https://deb.nodesource.com/setup_${NODE_MAJOR}.x" | bash -
-  apt-get install -y -qq nodejs npm
-fi
-echo "postinst: Node $(node -v)"
 
 # --- system user ----------------------------------------------------------
 if ! getent group "$APP_USER" >/dev/null; then
@@ -40,9 +31,27 @@ if [ ! -f "$ETC_DIR/env" ]; then
   printf 'P2P_HOST=0.0.0.0\nP2P_PORT=%s\n' "${P2P_PORT:-3000}" > "$ETC_DIR/env"
 fi
 
+# --- Node.js --------------------------------------------------------------
+# Must be >= 20.9 AND runnable by the service user via the standard paths.
+# (Never trust a caller-supplied PATH that may point at a personal nvm.)
+NODE_EXPR='const [M,m]=process.versions.node.split(".").map(Number); process.exit(M>20||(M===20&&m>=9)?0:1)'
+node_usable() {
+  su -s /bin/sh "$APP_USER" -c "PATH='$SYSTEM_PATH' node -e '$NODE_EXPR'" >/dev/null 2>&1
+}
+
+if ! node_usable; then
+  echo "postinst: installing system Node.js ${NODE_MAJOR}.x ..."
+  export DEBIAN_FRONTEND=noninteractive
+  export PATH="$SYSTEM_PATH"
+  curl -fsSL "https://deb.nodesource.com/setup_${NODE_MAJOR}.x" | bash -
+  apt-get install -y -qq nodejs npm
+fi
+node_usable || { echo "postinst: ERROR: no Node.js >= 20.9 usable by user ${APP_USER}" >&2; exit 1; }
+echo "postinst: Node $(PATH="$SYSTEM_PATH" node -v)"
+
 # --- build ----------------------------------------------------------------
 echo "postinst: building website (npm ci + next build) ..."
-runuser -u "$APP_USER" -- bash -lc "cd '$APP_DIR' && npm ci && npm run build"
+PATH="$SYSTEM_PATH" runuser -u "$APP_USER" -- env PATH="$SYSTEM_PATH" bash -lc "cd '$APP_DIR' && npm ci && npm run build"
 chown -R "$APP_USER:$APP_USER" "$APP_DIR"
 
 # --- service --------------------------------------------------------------

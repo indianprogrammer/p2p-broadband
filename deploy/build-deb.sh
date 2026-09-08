@@ -19,7 +19,8 @@ command -v dpkg-deb >/dev/null 2>&1 || { echo "ERROR: dpkg-deb not found" >&2; e
 
 VER="$(node -p 'require(process.argv[1]).version' "${REPO_ROOT}/package.json" 2>/dev/null || echo "0.1.0")"
 PKG_NAME="p2p-broadband"
-DEB_VERSION="${VER}-1"
+DEB_REVISION="${DEB_REVISION:-1}"
+DEB_VERSION="${VER}-${DEB_REVISION}"
 DEB="${OUT_DIR}/${PKG_NAME}_${DEB_VERSION}_all.deb"
 
 STAGE="$(mktemp -d)"
@@ -45,7 +46,7 @@ Version: ${DEB_VERSION}
 Section: web
 Priority: optional
 Architecture: all
-Depends: systemd, curl, ca-certificates, apt-transport-https, build-essential
+Depends: systemd, util-linux, curl, ca-certificates, apt-transport-https, build-essential
 Maintainer: P2P Broadband <p2infra@gmail.com>
 Description: P2P Broadband website
  Static Next.js website for P2P Broadband, installed as an

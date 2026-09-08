@@ -29,6 +29,7 @@ NODE_MAJOR="${NODE_MAJOR:-22}"
 
 P2P_PORT="${P2P_PORT:-3000}"
 P2P_HOST="${P2P_HOST:-0.0.0.0}"
+SYSTEM_PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 MODE="source"
 DEB_FILE=""
@@ -80,21 +81,24 @@ ensure_base_packages() {
 }
 
 ensure_node() {
-  echo "  [2/6] Checking Node.js..."
-  if command -v node >/dev/null 2>&1 && \
-     node -e 'process.exit(process.versions.node.split(".").map(p=>+p).reduce((a,b,i)=>a*100+b)>=2009?0:1)' 2>/dev/null; then
-    echo "       Node $(node -v) already installed."
+  echo "  [3/6] Checking Node.js..."
+  local node_expr='const [M,m]=process.versions.node.split(".").map(Number); process.exit(M>20||(M===20&&m>=9)?0:1)'
+  if su -s /bin/sh "${APP_USER}" -c "PATH='${SYSTEM_PATH}' node -e '${node_expr}'" >/dev/null 2>&1; then
+    echo "       Node $(PATH="${SYSTEM_PATH}" node -v) already usable by '${APP_USER}'."
     return 0
   fi
-  echo "       Node.js >= 20.9 required — installing Node ${NODE_MAJOR}.x..."
+  echo "       No Node.js >= 20.9 usable by '${APP_USER}' — installing system Node ${NODE_MAJOR}.x..."
+  export DEBIAN_FRONTEND=noninteractive
+  export PATH="${SYSTEM_PATH}"
   curl -fsSL "https://deb.nodesource.com/setup_${NODE_MAJOR}.x" | bash -
   apt-get install -y -qq nodejs npm >/dev/null
-  command -v node >/dev/null 2>&1 || die "Node.js install failed"
-  echo "       Node $(node -v) installed."
+  su -s /bin/sh "${APP_USER}" -c "PATH='${SYSTEM_PATH}' node -e '${node_expr}'" >/dev/null 2>&1 \
+    || die "Node.js install failed (still no node >= 20.9 for '${APP_USER}')"
+  echo "       Node $(PATH="${SYSTEM_PATH}" node -v) installed."
 }
 
 create_service_user() {
-  echo "  [3/6] Creating system user '${APP_USER}'..."
+  echo "  [2/6] Creating system user '${APP_USER}'..."
   if ! getent group "${APP_USER}" >/dev/null; then
     groupadd --system "${APP_USER}"
   fi
@@ -142,7 +146,7 @@ build_from_source() {
     --exclude "*.log" \
     "${SCRIPT_DIR}/../" "${APP_DIR}/"
 
-  runuser -u "${APP_USER}" -- bash -lc "cd '${APP_DIR}' && npm ci && npm run build"
+  runuser -u "${APP_USER}" -- env PATH="${SYSTEM_PATH}" bash -lc "cd '${APP_DIR}' && npm ci && npm run build"
   chown -R "${APP_USER}:${APP_USER}" "${APP_DIR}"
 }
 
@@ -216,7 +220,6 @@ main() {
 
   if [[ "${MODE}" == "deb" ]]; then
     ensure_base_packages
-    ensure_node
     install_deb
     open_firewall
     finish
@@ -224,8 +227,8 @@ main() {
   fi
 
   ensure_base_packages
-  ensure_node
   create_service_user
+  ensure_node
   build_from_source
   install_systemd_service
   open_firewall
