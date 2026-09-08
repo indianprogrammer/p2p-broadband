@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+SERVICE_NAME="p2p-broadband"
+APP_DIR="/opt/p2p-broadband"
+ETC_DIR="/etc/p2p-broadband"
+APP_USER="p2p"
+
+if [ "$1" = "purge" ]; then
+  systemctl --quiet disable "$SERVICE_NAME" || true
+  rm -rf "$APP_DIR" "$ETC_DIR"
+  rm -f "/etc/systemd/system/${SERVICE_NAME}.service"
+  userdel -r "$APP_USER" >/dev/null 2>&1 || true
+  groupdel "$APP_USER" >/dev/null 2>&1 || true
+  systemctl daemon-reload || true
+fi
+
+exit 0

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # eslint cache
 /.eslintcache
+
+# deb build output
+/dist

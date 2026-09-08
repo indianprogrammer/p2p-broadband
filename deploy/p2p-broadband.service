@@ -1,0 +1,21 @@
+[Unit]
+Description=P2P Broadband website (Next.js)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=p2p
+Group=p2p
+WorkingDirectory=/opt/p2p-broadband
+Environment=NODE_ENV=production
+EnvironmentFile=-/etc/p2p-broadband/env
+ExecStart=/usr/bin/env node_modules/.bin/next start -H ${P2P_HOST} -p ${P2P_PORT}
+Restart=always
+RestartSec=5
+KillSignal=SIGTERM
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,60 @@
+#!/bin/sh
+set -e
+
+APP_DIR="/opt/p2p-broadband"
+ETC_DIR="/etc/p2p-broadband"
+SERVICE_NAME="p2p-broadband"
+SERVICE_UNIT="/etc/systemd/system/${SERVICE_NAME}.service"
+APP_USER="p2p"
+NODE_MAJOR="${NODE_MAJOR:-22}"
+
+case "$1" in
+  configure) ;;
+  abort-upgrade|abort-remove|abort-deconfigure) exit 0 ;;
+  *) exit 0 ;;
+esac
+
+# --- Node.js >= 20.9 (via NodeSource) -------------------------------------
+if ! command -v node >/dev/null 2>&1 || \
+   ! node -e 'process.exit(process.versions.node.split(".").map(p=>+p).reduce((a,b,i)=>a*100+b)>=2009?0:1)' 2>/dev/null; then
+  echo "postinst: installing Node.js ${NODE_MAJOR}.x ..."
+  export DEBIAN_FRONTEND=noninteractive
+  curl -fsSL "https://deb.nodesource.com/setup_${NODE_MAJOR}.x" | bash -
+  apt-get install -y -qq nodejs npm
+fi
+echo "postinst: Node $(node -v)"
+
+# --- system user ----------------------------------------------------------
+if ! getent group "$APP_USER" >/dev/null; then
+  groupadd --system "$APP_USER"
+fi
+if ! id "$APP_USER" >/dev/null 2>&1; then
+  useradd --system --gid "$APP_USER" --home-dir "$APP_DIR" --shell /usr/sbin/nologin "$APP_USER"
+fi
+mkdir -p "$APP_DIR"
+chown -R "$APP_USER:$APP_USER" "$APP_DIR"
+
+# --- env ------------------------------------------------------------------
+mkdir -p "$ETC_DIR"
+if [ ! -f "$ETC_DIR/env" ]; then
+  printf 'P2P_HOST=0.0.0.0\nP2P_PORT=%s\n' "${P2P_PORT:-3000}" > "$ETC_DIR/env"
+fi
+
+# --- build ----------------------------------------------------------------
+echo "postinst: building website (npm ci + next build) ..."
+runuser -u "$APP_USER" -- bash -lc "cd '$APP_DIR' && npm ci && npm run build"
+chown -R "$APP_USER:$APP_USER" "$APP_DIR"
+
+# --- service --------------------------------------------------------------
+systemctl daemon-reload || true
+systemctl enable "$SERVICE_NAME" >/dev/null 2>&1 || true
+systemctl restart "$SERVICE_NAME" || true
+
+# --- firewall -------------------------------------------------------------
+PORT="$(sed -n 's/^P2P_PORT=//p' "$ETC_DIR/env")"
+PORT="${PORT:-3000}"
+if command -v ufw >/dev/null 2>&1 && ufw status 2>/dev/null | grep -q "Status: active"; then
+  ufw allow "${PORT}/tcp" >/dev/null || true
+fi
+
+exit 0

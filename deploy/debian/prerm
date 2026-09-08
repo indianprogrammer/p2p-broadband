@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+
+SERVICE_NAME="p2p-broadband"
+
+case "$1" in
+  remove|upgrade|deconfigure)
+    systemctl --quiet stop "$SERVICE_NAME" || true
+    ;;
+esac
+
+exit 0
