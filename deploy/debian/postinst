@@ -6,8 +6,9 @@ ETC_DIR="/etc/p2p-broadband"
 SERVICE_NAME="p2p-broadband"
 SERVICE_UNIT="/etc/systemd/system/${SERVICE_NAME}.service"
 APP_USER="p2p"
-NODE_MAJOR="${NODE_MAJOR:-22}"
 SYSTEM_PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+NODE_DIR="${NODE_DIR:-/opt/nodejs}"
+NODE_ARCH="${NODE_ARCH:-linux-x64}"
 
 case "$1" in
   configure) ;;
@@ -34,19 +35,41 @@ fi
 # --- Node.js --------------------------------------------------------------
 # Must be >= 20.9 AND runnable by the service user via the standard paths.
 # (Never trust a caller-supplied PATH that may point at a personal nvm.)
+# NOTE: this script runs inside dpkg, so it must NOT call apt-get/dpkg
+# (that would deadlock on the dpkg lock). Node is installed from an
+# official Node.js tarball instead.
 NODE_EXPR='const [M,m]=process.versions.node.split(".").map(Number); process.exit(M>20||(M===20&&m>=9)?0:1)'
 node_usable() {
   su -s /bin/sh "$APP_USER" -c "PATH='$SYSTEM_PATH' node -e '$NODE_EXPR'" >/dev/null 2>&1
 }
 
+install_system_node() {
+  echo "postinst: installing system Node.js 22.x into ${NODE_DIR} ..."
+  tarball="$(curl -fsSL --max-time 30 https://nodejs.org/dist/latest-v22.x/SHASUMS256.txt 2>/dev/null | grep -oE "node-v[0-9.]+-${NODE_ARCH}.tar.xz" | tail -1)"
+  case "$tarball" in
+    node-v*.tar.xz) ;;
+    *) echo "postinst: ERROR: could not determine latest Node.js 22 download" >&2; return 1 ;;
+  esac
+
+  tmp="$(mktemp -d)"
+  curl -fsSL --retry 3 -o "${tmp}/node.tar.xz" "https://nodejs.org/dist/latest-v22.x/${tarball}" \
+    || { rm -rf "$tmp"; echo "postinst: ERROR: failed to download ${tarball}" >&2; return 1; }
+
+  mkdir -p "${NODE_DIR}"
+  tar -xJf "$tmp/node.tar.xz" -C "${NODE_DIR}" --strip-components=1
+  rm -rf "$tmp"
+
+  ln -sf "${NODE_DIR}/bin/node" /usr/local/bin/node
+  ln -sf "${NODE_DIR}/bin/npm" /usr/local/bin/npm
+  ln -sf "${NODE_DIR}/bin/npx" /usr/local/bin/npx
+  ln -sf "${NODE_DIR}/bin/corepack" /usr/local/bin/corepack
+  return 0
+}
+
 if ! node_usable; then
-  echo "postinst: installing system Node.js ${NODE_MAJOR}.x ..."
-  export DEBIAN_FRONTEND=noninteractive
-  export PATH="$SYSTEM_PATH"
-  curl -fsSL "https://deb.nodesource.com/setup_${NODE_MAJOR}.x" | bash -
-  apt-get install -y -qq nodejs npm
+  install_system_node || exit 1
 fi
-node_usable || { echo "postinst: ERROR: no Node.js >= 20.9 usable by user ${APP_USER}" >&2; exit 1; }
+node_usable || { echo "postinst: ERROR: still no Node.js >= 20.9 usable by user ${APP_USER}" >&2; exit 1; }
 echo "postinst: Node $(PATH="$SYSTEM_PATH" node -v)"
 
 # --- build ----------------------------------------------------------------
